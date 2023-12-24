@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Color-->
+    <Color x:Key="AccentColor" R="92" G="194" B="207"></Color>
+    <Color x:Key="AccentColor15" R="92" G="194" B="207" A="38"></Color>
+    <!--Themes Color-->
+    <SolidColorBrush x:Key="Themes" Color="#FFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="Accent"   Color="#5CC2CF"></SolidColorBrush>
+    <SolidColorBrush x:Key="Support" Color="#C5D017"></SolidColorBrush>
+    <SolidColorBrush x:Key="Accent75"   Color="#5CC2CF" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Support75" Color="#C5D017" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Accent50"   Color="#5CC2CF" Opacity="0.50"></SolidColorBrush>
+    <SolidColorBrush x:Key="Support50" Color="#C5D017" Opacity="0.50"></SolidColorBrush>
+    <SolidColorBrush x:Key="Accent25"   Color="#5CC2CF" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Support25" Color="#C5D017" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Accent15"   Color="#5CC2CF" Opacity="0.15"></SolidColorBrush>
+    <SolidColorBrush x:Key="Support15" Color="#C5D017" Opacity="0.15"></SolidColorBrush>
+
+    <!--Element Color-->
+    <SolidColorBrush x:Key="Emphasise" Color="#000000"></SolidColorBrush>
+    <SolidColorBrush x:Key="Text" Color="#333333"></SolidColorBrush>
+    <SolidColorBrush x:Key="EmphasiseGray" Color="#AAAAAA"></SolidColorBrush>
+    <SolidColorBrush x:Key="Border" Color="#CCCCCC"></SolidColorBrush>
+    <SolidColorBrush x:Key="Disabled" Color="#E5E5E5"></SolidColorBrush>
+    <SolidColorBrush x:Key="CardBack" Color="#F5F5F5"></SolidColorBrush>
+
+    <!--Status Color-->
+    <SolidColorBrush x:Key="Success" Color="#00C236"></SolidColorBrush>
+    <SolidColorBrush x:Key="Info" Color="#18A0FB"></SolidColorBrush>
+    <SolidColorBrush x:Key="Warning" Color="#F3C830"></SolidColorBrush>
+    <SolidColorBrush x:Key="Failed" Color="#FF5353"></SolidColorBrush>
+    <SolidColorBrush x:Key="Success75" Color="#00C236" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Info75" Color="#18A0FB" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Warning75" Color="#F3C830" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Failed75" Color="#FF5353" Opacity="0.75"></SolidColorBrush>
+    <SolidColorBrush x:Key="Success50" Color="#00C236" Opacity="0.5"></SolidColorBrush>
+    <SolidColorBrush x:Key="Info50" Color="#18A0FB" Opacity="0.5"></SolidColorBrush>
+    <SolidColorBrush x:Key="Warning50" Color="#F3C830" Opacity="0.5"></SolidColorBrush>
+    <SolidColorBrush x:Key="Failed50" Color="#FF5353" Opacity="0.5"></SolidColorBrush>
+    <SolidColorBrush x:Key="Success25" Color="#00C236" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Info25" Color="#18A0FB" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Warning25" Color="#F3C830" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Failed25" Color="#FF5353" Opacity="0.25"></SolidColorBrush>
+    <SolidColorBrush x:Key="Success15" Color="#00C236" Opacity="0.15"></SolidColorBrush>
+    <SolidColorBrush x:Key="Info15" Color="#18A0FB" Opacity="0.15"></SolidColorBrush>
+    <SolidColorBrush x:Key="Warning15" Color="#F3C830" Opacity="0.15"></SolidColorBrush>
+    <SolidColorBrush x:Key="Failed15" Color="#FF5353" Opacity="0.15"></SolidColorBrush>
+</ResourceDictionary>
