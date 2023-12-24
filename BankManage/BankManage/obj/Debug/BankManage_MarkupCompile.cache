@@ -12,9 +12,9 @@ DEBUG;TRACE
 Q:\GitBench\BankManager\BankManage\BankManage\App.xaml
 19-806774631
 4990387617
-46-343570963
+471578207158
 50-1507409771
 Main.xaml;service\employee\ChangePay.xaml;service\employee\EmployeeBase.xaml;service\help.xaml;service\LoginForm.xaml;service\money\Deposit.xaml;service\money\NewAccount.xaml;service\money\OperateRecord.xaml;service\money\Withdraw.xaml;service\other\ChangeAccount.xaml;service\other\ChangeOperate.xaml;service\query\DayQuery.xaml;service\query\TotalQuery.xaml;service\rateManage\ratePage.xaml;static\style\DataGridColumnTemplate.xaml;static\style\DataGridStyle.xaml;static\style\PageBarStyle.xaml;static\style\Share.xaml;Page1.xaml;
 
-False
+True
 
