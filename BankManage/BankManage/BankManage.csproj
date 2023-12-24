@@ -171,6 +171,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BankModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="component\pagination\pagerControl\PagerBar.cs" />
+    <Compile Include="component\pagination\pagerControl\PagerButton.cs" />
     <Compile Include="EmployeeInfo.cs">
       <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
@@ -180,6 +182,7 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\PaginationItem.cs" />
     <Compile Include="MoneyInfo.cs">
       <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
@@ -226,9 +229,7 @@
     <Compile Include="utils\LogHelper.cs" />
     <Compile Include="utils\TransHelper.cs" />
     <Compile Include="utils\Encrypt.cs" />
-    <Compile Include="utils\pageHelper\Pager.cs" />
-    <Compile Include="utils\pageHelper\PagerBar.cs" />
-    <Compile Include="utils\pageHelper\PagerButton.cs" />
+    <Compile Include="component\pagination\pagerControl\Pager.cs" />
     <Compile Include="utils\RedisBaseTools.cs" />
     <Compile Include="utils\Uuid.cs" />
     <Compile Include="utils\Validite.cs" />
@@ -236,9 +237,9 @@
     <Compile Include="vm\MainWindowViewModel.cs" />
     <Compile Include="vm\NotifyProperty.cs" />
     <Compile Include="vm\RelayCommand.cs" />
-    <Compile Include="vm\Student.cs" />
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="model\Student.cs" />
+    <Compile Include="component\pagination\PageBar.xaml.cs">
+      <DependentUpon>PageBar.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
@@ -249,7 +250,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="dao\DataOperation.cs" />
-    <Compile Include="entity\Enums.cs" />
+    <Compile Include="model\Enums.cs" />
     <Page Include="service\employee\ChangePay.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -318,15 +319,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page1.xaml">
+    <Page Include="component\pagination\PageBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="entity\Custom.cs" />
-    <Compile Include="entity\CustomChecking.cs" />
-    <Compile Include="entity\CustomFixed.cs" />
+    <Compile Include="model\Custom.cs" />
+    <Compile Include="model\CustomChecking.cs" />
+    <Compile Include="model\CustomFixed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

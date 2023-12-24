@@ -1,7 +1,8 @@
 ﻿<Window x:Class="BankManage.Main"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Main" Height="500" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+        Title="Main" Height="600" Width="900" WindowStartupLocation="CenterScreen" >
+    <!-- WindowStyle="None" AllowsTransparency="True"-->
     <DockPanel>
         <DockPanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -112,6 +113,6 @@
             </StackPanel>
         </ScrollViewer>
         <!--<Frame Name="frame1" Margin=" 5 20 40 20" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" />-->
-        <Frame Source="Page1.xaml"></Frame>
+        <Frame Source="component/pagination/pageBar.xaml"></Frame>
     </DockPanel>
 </Window>

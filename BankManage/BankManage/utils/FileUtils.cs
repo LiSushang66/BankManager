@@ -1,13 +1,14 @@
 ﻿using System.IO;
 
 
-/// <summary>
-/// 文件是否占用
-/// </summary>
-/// <param name="fileName"></param>
-/// <returns></returns>
-
 namespace BankManage.utils {
+    /// <summary>
+    /// 文件是否占用
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
+
+
     internal class FileUtils {
         public static bool IsFileInUse(string fileName) {
             bool inUse = true;

@@ -5,17 +5,21 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--数据表格样式-->
                 <ResourceDictionary Source="static/style/DataGridColumnTemplate.xaml" />
                 <ResourceDictionary Source="static/style/DataGridStyle.xaml" />
-            
+                
+                <!--分页样式-->
+                <ResourceDictionary Source="static/style/Share.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="static/style/PageBarStyle.xaml"></ResourceDictionary>
+
                 <!--Material Ui-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.deeppurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                
 
-                <ResourceDictionary Source="static/style/Share.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="static/style/PageBarStyle.xaml"></ResourceDictionary>
                 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

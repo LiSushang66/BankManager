@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:BankManage.utils.pageHelper">
+                    xmlns:controls="clr-namespace:BankManage.component.pagination.pagerControl">
     <Style x:Key="PagerButtonStyle" TargetType="controls:PagerButton">
         <Setter Property="Template">
             <Setter.Value>
@@ -115,7 +115,7 @@
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid>
 
-                        <ToggleButton x:Name="ToggleButton" Template="{StaticResource ComboBoxToggleButton}"
+                        <ToggleButton x:Name="ToggleButton" Width="120" Template="{StaticResource ComboBoxToggleButton}"
                                       Focusable="false" ClickMode="Press" 
                                       IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                         <ContentPresenter x:Name="ContentSite" IsHitTestVisible="False"

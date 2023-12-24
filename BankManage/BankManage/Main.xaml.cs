@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankManage.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,25 @@ namespace BankManage
             InitializeComponent();
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             this.SourceInitialized += MainWindow_SourceInitialized;
+
+            //using (var c = new BankEntities()) {
+            //    for (int i = 1; i <= 100; i++) {
+            //        //创建对象
+            //        MoneyInfo v = new MoneyInfo() {
+            //            accountNo = "123",
+            //            dealDate = DateTime.Now,
+            //            dealType = "取钱",
+            //            dealMoney = 100,
+            //            balance = 2000,
+            //        };
+            //        c.MoneyInfo.Add(v);  //插入
+            //        c.SaveChanges(); //保存
+            //    }
+            //}
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            Button item = e.Source as Button;
+            //Button item = e.Source as Button;
             //if (item != null) {
             //    frame1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
             //}

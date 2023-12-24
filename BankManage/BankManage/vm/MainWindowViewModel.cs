@@ -1,77 +1,85 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Input;
 
-using BankManage.utils.pageHelper;
+using BankManage.component.pagination.pagerControl;
+using BankManage.model;
 
 namespace BankManage.vm {
     public class MainWindowViewModel : NotifyProperty {
         private int Index { get; set; }
-        private ObservableCollection<Student> _studentCollection;
-        private ObservableCollection<Student> _studentCollectionPaging;
+        private ObservableCollection<PaginationItem> _paginationItemCollection;
+        private ObservableCollection<PaginationItem> _paginationItemCollectionPaging;
 
-        private Pager<Student> _pager;
+        private Pager<PaginationItem> _pager;
 
-        public ObservableCollection<Student> StudentCollection {
-            get => _studentCollection;
-            set => SetProperty(ref _studentCollection, value);
+        public ObservableCollection<PaginationItem> PaginationItemCollection {
+            get => _paginationItemCollection;
+            set => SetProperty(ref _paginationItemCollection, value);
         }
 
-        public ObservableCollection<Student> StudentCollectionPaging {
-            get => _studentCollectionPaging;
-            set => SetProperty(ref _studentCollectionPaging, value);
+        public ObservableCollection<PaginationItem> PaginationItemCollectionPaging {
+            get => _paginationItemCollectionPaging;
+            set => SetProperty(ref _paginationItemCollectionPaging, value);
         }
 
-        public Pager<Student> Pager {
+        public Pager<PaginationItem> Pager {
             get => _pager;
             set => SetProperty(ref _pager, value);
         }
         public ICommand AddCommand { get; set; }
 
         private void ExecuteAddCommand(object obj) {
-            StudentCollection.Add(new Student() {
+            PaginationItemCollection.Add(new PaginationItem() {
                 Id = ++Index,
-                Source = new Random().NextDouble() * 100,
+                //Source = new Random().NextDouble() * 100,
             });
         }
         public ICommand DeleteCommand { get; set; }
 
         private void ExecuteDeleteCommand(object obj) {
-            if (obj is Student student) {
-                StudentCollection.Remove(student);
+            if (obj is PaginationItem paginationItem) {
+                PaginationItemCollection.Remove(paginationItem);
             } else {
-                if (StudentCollection.Count > 0) {
-                    StudentCollection.RemoveAt(0);
+                if (PaginationItemCollection.Count > 0) {
+                    PaginationItemCollection.RemoveAt(0);
                 }
             }
         }
         public ICommand SortCommand { get; set; }
 
         private void ExecuteSortCommand(object obj) {
-            var list = StudentCollection.ToList().OrderByDescending(item => item.Source).ToList();
-            StudentCollection.Clear();
+            var list = PaginationItemCollection.ToList().OrderByDescending(item => item.Id).ToList();
+            PaginationItemCollection.Clear();
             foreach (var item in list) {
-                StudentCollection.Add(item);
+                PaginationItemCollection.Add(item);
             }
         }
 
         public MainWindowViewModel() {
-            StudentCollection = new ObservableCollection<Student>();
-            for (int i = 0; i < 10; i++) {
-                StudentCollection.Add(new Student() {
-                    Id = Index = i,
-                    Source = 10 * (i + 1),
+            PaginationItemCollection = new ObservableCollection<PaginationItem>();
+            BankEntities context = new BankEntities();
+            var query = from t in context.MoneyInfo
+                        select t;
+            foreach (var v in query.ToList()) {
+                PaginationItemCollection.Add(new PaginationItem() {
+                    Id = v.Id,
+                    accountNo = v.accountNo,
+                    dealDate = v.dealDate,
+                    dealType = v.dealType,
+                    dealMoney = v.dealMoney,
+                    balance = v.balance,
                 });
             }
-
             AddCommand = new RelayCommand(ExecuteAddCommand);
             DeleteCommand = new RelayCommand(ExecuteDeleteCommand);
             SortCommand = new RelayCommand(ExecuteSortCommand);
 
-            Pager = new Pager<Student>(8, StudentCollection);
+            Pager = new Pager<PaginationItem>(8, PaginationItemCollection);
             Pager.PagerUpdated += items => {
-                StudentCollectionPaging = new ObservableCollection<Student>(items);
+                PaginationItemCollectionPaging = new ObservableCollection<PaginationItem>(items);
             };
             Pager.CurPageIndex = 1;
         }
