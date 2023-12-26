@@ -1,5 +1,4 @@
-﻿using BankManage.model;
-using BankManage.model.loginForm;
+﻿using BankManage.model.loginForm;
 using BankManage.utils;
 using System;
 using System.Collections.Generic;

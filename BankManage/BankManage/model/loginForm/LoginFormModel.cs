@@ -20,7 +20,6 @@ namespace BankManage.model.loginForm {
         public string password {
             get => _password;
             set => SetProperty(ref _password, value);
-            }
         }
         public ImageSource captcha {
             get => _captcha;
