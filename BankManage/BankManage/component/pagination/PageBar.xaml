@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankManage"
         xmlns:controls="clr-namespace:BankManage.component.pagination.pagerControl"
-        xmlns:vm="clr-namespace:BankManage.vm"
+        xmlns:vm="clr-namespace:BankManage.vm.pagination"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
-        d:DesignHeight="300" d:DesignWidth="300">
+        d:DataContext="{d:DesignInstance vm:PaginationVm}"
+        Title="分页控件" d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -36,7 +36,7 @@
                            CurrentPageIndex="{Binding Path=Pager.CurPageIndex, Mode=TwoWay}"/>
         <UniformGrid Grid.Row="2" Columns="3">
             <Button Margin="20,5" Content="添加" Command="{Binding AddCommand}"/>
-            <Button Margin="20,5" Content="删除" 
+            <Button Margin="20,5" Content="删除"
                     Command="{Binding DeleteCommand}"
                     CommandParameter="{Binding ElementName=datagrid1,Path=SelectedItem}"/>
             <Button Margin="20,5" Content="排序" Command="{Binding SortCommand}"/>

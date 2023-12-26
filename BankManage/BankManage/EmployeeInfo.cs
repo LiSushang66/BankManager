@@ -16,6 +16,7 @@ namespace BankManage
     {
         public string EmployeeNo { get; set; }
         public string EmployeeName { get; set; }
+        public string Password { get; set; }
         public string sex { get; set; }
         public Nullable<System.DateTime> workDate { get; set; }
         public string telphone { get; set; }

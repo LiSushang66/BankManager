@@ -154,76 +154,78 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AccountInfo.cs">
-      <DependentUpon>BankModel.tt</DependentUpon>
+      <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="BankModel.Context.cs">
+    <Compile Include="BankEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BankModel.Context.tt</DependentUpon>
+      <DependentUpon>BankEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BankModel.cs">
+    <Compile Include="BankEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BankModel.tt</DependentUpon>
+      <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="BankModel.Designer.cs">
+    <Compile Include="BankEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BankModel.edmx</DependentUpon>
+      <DependentUpon>BankEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="component\pagination\pagerControl\PagerBar.cs" />
     <Compile Include="component\pagination\pagerControl\PagerButton.cs" />
+    <Compile Include="component\password\PasswordBoxHelper.cs" />
+    <Compile Include="dao\impl\EmpMapperImpl.cs" />
+    <Compile Include="dao\EmpMapper.cs" />
     <Compile Include="EmployeeInfo.cs">
-      <DependentUpon>BankModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LoginInfo.cs">
-      <DependentUpon>BankModel.tt</DependentUpon>
+      <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\loginForm\LoginFormModel.cs" />
+    <Compile Include="model\MainModel.cs" />
     <Compile Include="model\PaginationItem.cs" />
     <Compile Include="MoneyInfo.cs">
-      <DependentUpon>BankModel.tt</DependentUpon>
+      <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="RateInfo.cs">
-      <DependentUpon>BankModel.tt</DependentUpon>
+      <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="service\employee\ChangePay.xaml.cs">
+    <Compile Include="view\employee\ChangePay.xaml.cs">
       <DependentUpon>ChangePay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\employee\EmployeeBase.xaml.cs">
-      <DependentUpon>EmployeeBase.xaml</DependentUpon>
+    <Compile Include="view\employee\EmployeeManage.xaml.cs">
+      <DependentUpon>EmployeeManage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\LoginForm.xaml.cs">
+    <Compile Include="view\loginForm\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\money\Deposit.xaml.cs">
+    <Compile Include="view\money\Deposit.xaml.cs">
       <DependentUpon>Deposit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\money\NewAccount.xaml.cs">
+    <Compile Include="view\money\NewAccount.xaml.cs">
       <DependentUpon>NewAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\money\OperateRecord.xaml.cs">
+    <Compile Include="view\money\OperateRecord.xaml.cs">
       <DependentUpon>OperateRecord.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\money\Withdraw.xaml.cs">
+    <Compile Include="view\money\Withdraw.xaml.cs">
       <DependentUpon>Withdraw.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\other\ChangeAccount.xaml.cs">
+    <Compile Include="view\passChange\ChangeAccount.xaml.cs">
       <DependentUpon>ChangeAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\other\ChangeOperate.xaml.cs">
+    <Compile Include="view\passChange\ChangeOperate.xaml.cs">
       <DependentUpon>ChangeOperate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\query\DayQuery.xaml.cs">
+    <Compile Include="view\summary\DayQuery.xaml.cs">
       <DependentUpon>DayQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\query\TotalQuery.xaml.cs">
+    <Compile Include="view\summary\TotalQuery.xaml.cs">
       <DependentUpon>TotalQuery.xaml</DependentUpon>
     </Compile>
-    <Compile Include="service\rateManage\ratePage.xaml.cs">
-      <DependentUpon>ratePage.xaml</DependentUpon>
+    <Compile Include="view\rateManage\RatePage.xaml.cs">
+      <DependentUpon>RatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="utils\FileUtils.cs" />
     <Compile Include="utils\LogHelper.cs" />
@@ -234,13 +236,26 @@
     <Compile Include="utils\Uuid.cs" />
     <Compile Include="utils\Validite.cs" />
     <Compile Include="utils\Captcha.cs" />
-    <Compile Include="vm\MainWindowViewModel.cs" />
+    <Compile Include="vm\employee\ChangePayVm.cs" />
+    <Compile Include="vm\employee\EmployeeManageVm.cs" />
+    <Compile Include="vm\help\HelpVm.cs" />
+    <Compile Include="vm\loginForm\LoginFormVm.cs" />
+    <Compile Include="vm\MainVm.cs" />
+    <Compile Include="vm\money\OperateRecordVm.cs" />
+    <Compile Include="vm\money\DepositVm.cs" />
+    <Compile Include="vm\money\WithdrawVm.cs" />
+    <Compile Include="vm\money\NewAccountVm.cs" />
+    <Compile Include="vm\pagination\PaginationVm.cs" />
     <Compile Include="vm\NotifyProperty.cs" />
+    <Compile Include="vm\passChange\ChangeAccountVm.cs" />
+    <Compile Include="vm\passChange\ChangeOperateVm.cs" />
+    <Compile Include="vm\rateManage\RatePage.cs" />
     <Compile Include="vm\RelayCommand.cs" />
-    <Compile Include="model\Student.cs" />
     <Compile Include="component\pagination\PageBar.xaml.cs">
       <DependentUpon>PageBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vm\summary\DayQueryVm.cs" />
+    <Compile Include="vm\summary\TotalQueryVm.cs" />
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,57 +264,57 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="dao\DataOperation.cs" />
+    <Compile Include="model\DataOperation.cs" />
     <Compile Include="model\Enums.cs" />
-    <Page Include="service\employee\ChangePay.xaml">
+    <Page Include="view\employee\ChangePay.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\employee\EmployeeBase.xaml">
+    <Page Include="view\employee\EmployeeManage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\help.xaml">
+    <Page Include="view\help\Help.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\LoginForm.xaml">
+    <Page Include="view\loginForm\LoginForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\money\Deposit.xaml">
+    <Page Include="view\money\Deposit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\money\NewAccount.xaml">
+    <Page Include="view\money\NewAccount.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\money\OperateRecord.xaml">
+    <Page Include="view\money\OperateRecord.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\money\Withdraw.xaml">
+    <Page Include="view\money\Withdraw.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\other\ChangeAccount.xaml">
+    <Page Include="view\passChange\ChangeAccount.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\other\ChangeOperate.xaml">
+    <Page Include="view\passChange\ChangeOperate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\query\DayQuery.xaml">
+    <Page Include="view\summary\DayQuery.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\query\TotalQuery.xaml">
+    <Page Include="view\summary\TotalQuery.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="service\rateManage\ratePage.xaml">
+    <Page Include="view\rateManage\RatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -345,12 +360,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="BankModel.edmx">
+    <EntityDeploy Include="BankEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BankModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BankEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BankModel.edmx.diagram">
-      <DependentUpon>BankModel.edmx</DependentUpon>
+    <None Include="BankEntities.edmx.diagram">
+      <DependentUpon>BankEntities.edmx</DependentUpon>
     </None>
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -389,15 +404,15 @@
     <Content Include="Bank.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="BankModel.Context.tt">
+    <Content Include="BankEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BankModel.edmx</DependentUpon>
-      <LastGenOutput>BankModel.Context.cs</LastGenOutput>
+      <DependentUpon>BankEntities.edmx</DependentUpon>
+      <LastGenOutput>BankEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="BankModel.tt">
+    <Content Include="BankEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BankModel.edmx</DependentUpon>
-      <LastGenOutput>BankModel.cs</LastGenOutput>
+      <DependentUpon>BankEntities.edmx</DependentUpon>
+      <LastGenOutput>BankEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Bank_log.ldf">
       <DependentUpon>Bank.mdf</DependentUpon>

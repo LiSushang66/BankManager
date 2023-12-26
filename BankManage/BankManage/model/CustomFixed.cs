@@ -1,4 +1,4 @@
-﻿using BankManage.common;
+﻿using BankManage.model;
 
 namespace BankManage
 {
