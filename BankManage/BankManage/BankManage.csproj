@@ -420,6 +420,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dao\" />
     <Folder Include="static\font\" />
     <Folder Include="static\images\captcha\" />
     <Folder Include="static\images\profilePhoto\" />
