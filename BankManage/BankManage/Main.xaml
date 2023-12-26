@@ -84,7 +84,7 @@
                         </Button>
                     </StackPanel>
                 </Expander>
-                <Expander Header="其他功能">
+                <Expander Header="更改密码">
                     <StackPanel>
                         <Button Height="50" Width="90" Tag="other/ChangeAccount.xaml" Click="Button_Click">
                             <StackPanel Orientation="Vertical">
@@ -112,7 +112,7 @@
                 </Expander>
             </StackPanel>
         </ScrollViewer>
-        <!--<Frame Name="frame1" Margin=" 5 20 40 20" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" />-->
-        <Frame Source="component/pagination/pageBar.xaml"></Frame>
+        <Frame Name="frame1" Margin=" 5 20 40 20" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" />
+        <!--<Frame Source="component/pagination/pageBar.xaml"></Frame>-->
     </DockPanel>
 </Window>

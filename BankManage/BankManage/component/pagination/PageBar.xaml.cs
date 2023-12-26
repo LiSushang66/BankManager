@@ -1,4 +1,5 @@
 ﻿using BankManage.vm;
+using BankManage.vm.pagination;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,7 +11,7 @@ namespace BankManage.component.pagination {
         public PageBar() {
             InitializeComponent();
 
-            this.DataContext = new MainWindowViewModel();
+            this.DataContext = new PaginationVm();
         }
     }
 }

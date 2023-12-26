@@ -1,4 +1,5 @@
 ﻿using BankManage.model;
+using BankManage.view.loginForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,34 +26,34 @@ namespace BankManage
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             this.SourceInitialized += MainWindow_SourceInitialized;
 
-            //using (var c = new BankEntities()) {
-            //    for (int i = 1; i <= 100; i++) {
-            //        //创建对象
-            //        MoneyInfo v = new MoneyInfo() {
-            //            accountNo = "123",
-            //            dealDate = DateTime.Now,
-            //            dealType = "取钱",
-            //            dealMoney = 100,
-            //            balance = 2000,
-            //        };
-            //        c.MoneyInfo.Add(v);  //插入
-            //        c.SaveChanges(); //保存
-            //    }
-            //}
+            using (var c = new BankEntities()) {
+                for (int i = 1; i <= 100; i++) {
+                    //创建对象
+                    MoneyInfo v = new MoneyInfo() {
+                        accountNo = "123",
+                        dealDate = DateTime.Now,
+                        dealType = "取钱",
+                        dealMoney = 100,
+                        balance = 2000,
+                    };
+                    c.MoneyInfo.Add(v);  //插入
+                    c.SaveChanges(); //保存
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            //Button item = e.Source as Button;
-            //if (item != null) {
-            //    frame1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
-            //}
+            Button item = e.Source as Button;
+            if (item != null) {
+                frame1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+            }
         }
         void MainWindow_SourceInitialized(object sender, System.EventArgs e) {
             //默认显示当前页面
-            //this.frame1.Source = new Uri("service/money/OperateRecord.xaml", UriKind.Relative);
-            ////启动登陆窗体
-            //LoginForm login = new LoginForm();
-            //login.ShowDialog();
+            this.frame1.Source = new Uri("view/money/OperateRecord.xaml", UriKind.Relative);
+            //启动登陆窗体
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
         }
     }
 }
