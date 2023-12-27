@@ -28,12 +28,14 @@ namespace BankManage.vm.loginForm {
         public ICommand LogIn { get; set; }
         private void ExecuteLogIn(object obj) {
             if (obj is PasswordBox pass) {
-                var query = _empMapper.GetEmp(loginForm.txtCombox, loginForm.password);
+                var query = _empMapper.GetEmp(loginForm.txtCombox, Encrypt.SHA256Encrypt(loginForm.password));
                 if (query.Count() > 0) {
                     var q = query.First();
-                    UserName = _empMapper.GetEmp(q.EmployeeNo).EmployeeName;
+                    UserName = _empMapper.GetEmp(q.EmployeeNo).First().EmployeeName;
+                    LogHelper.Loginfo.Info(UserName+"登录成功");
                     _curWindow.Close();
                 } else {
+                    LogHelper.Loginfo.Info("登录失败");
                     MessageBox.Show("登录失败！");
                     loginForm.password = "";
                     pass.Focus();
@@ -50,6 +52,7 @@ namespace BankManage.vm.loginForm {
         public ICommand Window_Closing { get; set; }
         private void ExecuteWindow_Closing(object sender) {
             if (string.IsNullOrEmpty(this.UserName) == true) {
+                LogHelper.Loginfo.Info("程序关闭");
                 Application.Current.Shutdown();
             }
         }

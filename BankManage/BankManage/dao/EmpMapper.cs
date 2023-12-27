@@ -9,8 +9,11 @@ namespace BankManage.dao {
 
         //查询雇员
         List<EmployeeInfo> GetEmp();
-        EmployeeInfo GetEmp(string id);
+        List<EmployeeInfo> GetEmp(string id);
         List<EmployeeInfo> GetEmp(string name, string pass);
+
+        //更新雇员
+        bool UpdateEmp(EmployeeInfo emp, string newPass);
 
     }
 }
