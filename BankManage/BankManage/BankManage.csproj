@@ -184,6 +184,11 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="model\employee\AddEmpModel.cs" />
+    <Compile Include="model\employee\ChangeSalaryModel.cs" />
+    <Compile Include="model\employee\EditEmpModel.cs" />
+    <Compile Include="model\employee\EmpManageModel.cs" />
+    <Compile Include="model\employee\PayManageModel.cs" />
     <Compile Include="model\loginForm\LoginFormModel.cs" />
     <Compile Include="model\MainModel.cs" />
     <Compile Include="model\PaginationItem.cs" />
@@ -195,11 +200,23 @@
     <Compile Include="RateInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="view\employee\ChangePay.xaml.cs">
-      <DependentUpon>ChangePay.xaml</DependentUpon>
+    <Compile Include="view\employee\AddEmp.xaml.cs">
+      <DependentUpon>AddEmp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\employee\EmployeeManage.xaml.cs">
-      <DependentUpon>EmployeeManage.xaml</DependentUpon>
+    <Compile Include="view\employee\ChangeSalary.xaml.cs">
+      <DependentUpon>ChangeSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\employee\EditEmp.xaml.cs">
+      <DependentUpon>EditEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\employee\EmpManage.xaml.cs">
+      <DependentUpon>EmpManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\employee\PayManage.xaml.cs">
+      <DependentUpon>PayManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\employee\ViewEmp.xaml.cs">
+      <DependentUpon>ViewEmp.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\loginForm\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
@@ -238,10 +255,14 @@
     <Compile Include="component\pagination\pagerControl\Pager.cs" />
     <Compile Include="utils\RedisBaseTools.cs" />
     <Compile Include="utils\Uuid.cs" />
-    <Compile Include="utils\Validite.cs" />
+    <Compile Include="utils\Validate.cs" />
     <Compile Include="utils\Captcha.cs" />
-    <Compile Include="vm\employee\ChangePayVm.cs" />
-    <Compile Include="vm\employee\EmployeeManageVm.cs" />
+    <Compile Include="vm\employee\AddEmpVm.cs" />
+    <Compile Include="vm\employee\ChangeSalaryVm.cs" />
+    <Compile Include="vm\employee\EditEmpVm.cs" />
+    <Compile Include="vm\employee\EmpManageVm.cs" />
+    <Compile Include="vm\employee\PayManageVm.cs" />
+    <Compile Include="vm\employee\ViewEmpVm.cs" />
     <Compile Include="vm\help\HelpVm.cs" />
     <Compile Include="vm\loginForm\LoginFormVm.cs" />
     <Compile Include="vm\MainVm.cs" />
@@ -270,13 +291,29 @@
     </Compile>
     <Compile Include="model\DataOperation.cs" />
     <Compile Include="model\Enums.cs" />
-    <Page Include="view\employee\ChangePay.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="view\employee\AddEmp.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\employee\EmployeeManage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="view\employee\ChangeSalary.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\employee\EditEmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\employee\EmpManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\employee\PayManage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\employee\ViewEmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\help\Help.xaml">
       <Generator>MSBuild:Compile</Generator>

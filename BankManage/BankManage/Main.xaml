@@ -84,7 +84,7 @@
                 </Expander>
                 <Expander Header="职员管理">
                     <StackPanel>
-                        <Button Height="50" Width="60" Tag="view/employee/EmployeeManage.xaml" 
+                        <Button Height="50" Width="60" Tag="view/employee/EmpManage.xaml" 
                                 Command="{Binding Button_Click}"
                                 CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
                             <StackPanel Orientation="Vertical">
@@ -92,7 +92,7 @@
                                 <TextBlock Text="职员管理" VerticalAlignment="Center" />
                             </StackPanel>
                         </Button>
-                        <Button Height="50" Width="60" Tag="view/employee/ChangePay.xaml" 
+                        <Button Height="50" Width="60" Tag="view/employee/PayManage.xaml" 
                                 Command="{Binding Button_Click}"
                                 CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
                             <StackPanel Orientation="Vertical">

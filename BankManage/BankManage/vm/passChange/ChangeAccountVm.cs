@@ -39,14 +39,14 @@ namespace BankManage.vm.passChange {
                 return;
             }
             //验证密码复杂度
-            if (!Validite.Password(newPass)) {
+            if (!Validate.Password(newPass)) {
                 MessageBox.Show("密码太简单！");
                 return;
             }
             var query = _accMapper.GetAcc(changeAccount.txtAccount);
             if (query.Count() > 0) {
                 var q = query.First();
-                if (_accMapper.UpdateAcc(q, newPass)) {
+                if (_accMapper.UpdateAcc(q.accountNo, newPass)) {
                     MessageBox.Show("更改密码成功！");
                 } else {
                     MessageBox.Show("更改密码失败！");

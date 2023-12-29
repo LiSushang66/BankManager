@@ -1,10 +1,11 @@
-﻿using BankManage.view.loginForm;
-using System;
+﻿using System;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
+
 using BankManage.model;
 using BankManage.utils;
+using BankManage.view.loginForm;
 
 
 

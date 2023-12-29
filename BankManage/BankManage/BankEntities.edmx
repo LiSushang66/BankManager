@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountInfo">
           <Key>
             <PropertyRef Name="accountNo" />
@@ -24,6 +24,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="sex" Type="nchar" MaxLength="1" />
           <Property Name="workDate" Type="datetime" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
           <Property Name="telphone" Type="nvarchar" MaxLength="11" />
           <Property Name="idCard" Type="nchar" MaxLength="18" />
           <Property Name="photo" Type="varbinary(max)" />
@@ -52,7 +53,8 @@
           <EntitySet Name="MoneyInfo" EntityType="Self.MoneyInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RateInfo" EntityType="Self.RateInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -75,6 +77,7 @@
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="sex" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="workDate" Type="DateTime" Precision="3" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="telphone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="idCard" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
           <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -128,6 +131,7 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="sex" ColumnName="sex" />
                 <ScalarProperty Name="workDate" ColumnName="workDate" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="telphone" ColumnName="telphone" />
                 <ScalarProperty Name="idCard" ColumnName="idCard" />
                 <ScalarProperty Name="photo" ColumnName="photo" />

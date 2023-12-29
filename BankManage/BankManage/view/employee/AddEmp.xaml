@@ -1,0 +1,55 @@
+﻿<Page x:Class="BankManage.view.employee.AddEmp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      xmlns:cntl="clr-namespace:BankManage.component.password"
+      xmlns:vm="clr-namespace:BankManage.vm.employee"
+      d:DataContext="{d:DesignInstance vm:AddEmpVm}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEmp">
+
+    <Grid Background="White">
+        <Label Content="编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox Text="{Binding addEmp.txtEmployeeId}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtEmployeeIdError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,0,0,0"/>
+
+        <Label Content="名字:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
+        <TextBox Text="{Binding addEmp.txtEmployeeName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtEmployeeNameError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,40,0,0"/>
+
+        <Label Content="密码:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
+        <PasswordBox  cntl:PasswordBoxHelper.Password="{Binding addEmp.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,80,0,0" Width="150">
+        <b:Interaction.Behaviors>
+            <cntl:PasswordBoxBehavior/>
+        </b:Interaction.Behaviors>
+        </PasswordBox>
+        <TextBlock Text="{Binding addEmp.passwordError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,80,0,0"/>
+        
+        <Label Content="性别:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0"/>
+        <TextBox Text="{Binding addEmp.txtSex}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,120,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtSexError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,120,0,0"/>
+
+        <Label Content="工资:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
+        <TextBox Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,160,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,160,0,0"/>
+
+        <Label Content="电话:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
+        <TextBox Text="{Binding addEmp.txtTelphone}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,200,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtTelphoneError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,200,0,0"/>
+
+        <Label Content="身份证号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,240,0,0"/>
+        <TextBox Text="{Binding addEmp.txtIdCard}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,240,0,0" Width="150"/>
+        <TextBlock Text="{Binding addEmp.txtIdCardError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,240,0,0"/>
+
+        <Label Content="照片:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,280,0,0"/>
+        <Image Source="{Binding image}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,280,0,0" Width="150" Height="150"/>
+        <Button Content="选择照片" Width="80" Margin="240,280,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding SelectPhotoButton_Click}"/>
+
+        <Button Content="确定" Width="75" Margin="10,320,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding ConfirmButton_Click}"/>
+        <Button Content="取消" Width="75" Margin="10,320,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding CancelButton_Click}"/>
+    </Grid>
+</Page>

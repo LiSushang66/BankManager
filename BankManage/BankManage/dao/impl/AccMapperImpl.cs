@@ -21,16 +21,17 @@ namespace BankManage.dao.impl {
         }
 
         //更新指定账户的密码
-        public bool UpdateAcc(AccountInfo acc, string newPass) {
+        public bool UpdateAcc(string id, string newPass) {
             using (BankEntities context = new BankEntities()) {
-                acc.accountPass = Encrypt.SHA256Encrypt(newPass);
+                var q = context.AccountInfo.Find(id);
+                q.accountPass = Encrypt.SHA256Encrypt(newPass);
                 try {
                     context.SaveChanges();
+                    return true;
                 } catch {
                     return false;
                 }
             }
-            return true;
         }
     }
 }

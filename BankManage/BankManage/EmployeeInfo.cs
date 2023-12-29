@@ -19,6 +19,7 @@ namespace BankManage
         public string Password { get; set; }
         public string sex { get; set; }
         public Nullable<System.DateTime> workDate { get; set; }
+        public Nullable<decimal> Salary { get; set; }
         public string telphone { get; set; }
         public string idCard { get; set; }
         public byte[] photo { get; set; }

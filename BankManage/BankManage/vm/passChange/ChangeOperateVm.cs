@@ -10,9 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Linq.Expressions;
 
 namespace BankManage.vm.passChange {
-    internal class ChangeOperateVm : NotifyProperty{
+    internal class ChangeOperateVm : NotifyProperty {
 
         private EmpMapper _empMapper = new EmpMapperImpl();
 
@@ -37,14 +38,14 @@ namespace BankManage.vm.passChange {
                 return;
             }
             //验证密码复杂度
-            if (!Validite.Password(newPass)) {
+            if (!Validate.Password(newPass)) {
                 MessageBox.Show("密码太简单！");
                 return;
             }
             var query = _empMapper.GetEmp(changeOperate.txtEmployee);
             if (query.Count() > 0) {
                 var q = query.First();
-                if (_empMapper.UpdateEmp(q, newPass)) {
+                if (_empMapper.UpdateEmp(q.EmployeeNo, newPass)) {
                     MessageBox.Show("更改密码成功！");
                 } else {
                     MessageBox.Show("更改密码失败！");
@@ -53,6 +54,8 @@ namespace BankManage.vm.passChange {
                 MessageBox.Show("雇员不存在");
             }
         }
+
+
 
         //取消更改
         public ICommand btnCancel_Click { get; set; }

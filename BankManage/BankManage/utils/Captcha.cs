@@ -153,6 +153,8 @@ namespace BankManage.utils {
             }
             return new Color((byte)(255 * r), (byte)(255 * g), (byte)(255 * b));
         }
+
+        //Byte转图片
         private static BitmapImage ByteToImage(byte[] imageData) {
             BitmapImage biImg = new BitmapImage();
             try {

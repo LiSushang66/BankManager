@@ -23,6 +23,6 @@
                     <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" />
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic" Grid.Row="2"></TextBlock>
+        <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
