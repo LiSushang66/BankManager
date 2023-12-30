@@ -51,7 +51,7 @@ namespace BankManage.vm.employee {
         //选择本地图片提交
         public ICommand SelectPhotoButton_Click { get; set; }
         private void ExecuteSelectPhotoButton_Click(object obj) {
-            image = FileUtils.UploadPicture();
+            image = FileUtils.UploadPicture(image);
         }
 
         //确认提交

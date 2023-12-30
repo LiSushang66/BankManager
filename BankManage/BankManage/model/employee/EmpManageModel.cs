@@ -1,11 +1,12 @@
 ﻿using BankManage.vm;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace BankManage.model.employee {
     internal class EmpManageModel : NotifyProperty {
-        private IEnumerable<EmployeeInfo> _employee_DataGrid;
+        private ObservableCollection<EmployeeInfo> _employee_DataGrid;
         private object _selectedItem;
-        public IEnumerable<EmployeeInfo> employee_DataGrid {
+        public ObservableCollection<EmployeeInfo> employee_DataGrid {
             get => _employee_DataGrid;
             set => SetProperty(ref _employee_DataGrid, value);
         }

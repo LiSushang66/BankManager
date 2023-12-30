@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         xmlns:cntl="clr-namespace:BankManage.component.password"
         xmlns:vm="clr-namespace:BankManage.vm.loginForm"
@@ -51,7 +52,11 @@
             </TextBlock.OpacityMask>
         </TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right"  TextWrapping="Wrap" Text="账号"  Height="23" Margin="-10,17,10,0"/>
-        <ComboBox  ItemsSource="{Binding loginForm.txtComboxItem}" Text="{Binding loginForm.txtCombox}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,10"  Width="190" />
+        <ComboBox 
+            materialDesign:HintAssist.Hint="用户名"
+            materialDesign:HintAssist.HintOpacity=".26"
+            IsEditable="True"
+            ItemsSource="{Binding loginForm.txtComboxItem}" Text="{Binding loginForm.txtCombox}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,10"  Width="190" />
         <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" TextWrapping="Wrap" Text="密码"  Height="23" Width="36" Margin="0,7,0,10"/>
         <PasswordBox cntl:PasswordBoxHelper.Password="{Binding loginForm.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      x:Name="pass" HorizontalAlignment="Left"  Width="190" Height="23" Grid.Column="1" Grid.Row="2" Margin="20,10,0,7">

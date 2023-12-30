@@ -15,7 +15,7 @@ namespace BankManage.utils {
 
     internal class FileUtils {
         //从本地上传图片
-        public static BitmapImage UploadPicture() {
+        public static BitmapImage UploadPicture(BitmapImage oldImage) {
             OpenFileDialog openFileDialog = new OpenFileDialog {
                 Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png|All files (*.*)|*.*"
             };
@@ -23,17 +23,21 @@ namespace BankManage.utils {
             if (openFileDialog.ShowDialog() == true) {
                 return new BitmapImage(new Uri(openFileDialog.FileName));
             }
-            return null;
+            return oldImage;
         }
 
         //图片转Byte
         public static byte[] ImageToByte(BitmapImage image) {
-            byte[] photoData;
-            using (MemoryStream stream = new MemoryStream()) {
-                BitmapEncoder encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(image));
-                encoder.Save(stream);
-                photoData = stream.ToArray();
+            byte[] photoData = null;
+            try {
+                using (MemoryStream stream = new MemoryStream()) {
+                    BitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(image));
+                    encoder.Save(stream);
+                    photoData = stream.ToArray();
+                }
+            } catch (Exception ex) {
+                Debug.Print($"转换图片失败:: {ex.Message}");
             }
             return photoData;
         }

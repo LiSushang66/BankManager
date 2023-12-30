@@ -22,6 +22,11 @@ namespace BankManage.vm.employee {
             set => SetProperty(ref _changeSalary ,value);
         }
 
+        public EmployeeInfo curEmployee {
+            get => _curEmployee;
+            set => SetProperty(ref _curEmployee, value);
+        }
+
         public string salary {
             get => changeSalary.txtSalary.ToString();
             set {
@@ -35,7 +40,7 @@ namespace BankManage.vm.employee {
         // 加载当前雇员信息
         public ICommand Page_Loaded { get;set; }
         private void ExecutePage_Loaded(object obj) {
-            salary = _empMapper.GetEmp(_curEmployee.EmployeeNo).First().Salary.ToString();
+            salary = _empMapper.GetEmp(curEmployee.EmployeeNo).First().Salary.ToString();
         }
 
         //保存修改
@@ -51,7 +56,7 @@ namespace BankManage.vm.employee {
             }
 
             // 保存修改后的薪水信息到数据库
-            if (_empMapper.UpdateEmp(_curEmployee.EmployeeNo, changeSalary.txtSalary)) {
+            if (_empMapper.UpdateEmp(curEmployee.EmployeeNo, changeSalary.txtSalary)) {
                 // 提示保存成功
                 MessageBox.Show("薪水信息保存成功！", "成功", MessageBoxButton.OK, MessageBoxImage.Information);
                 // 返回上一页

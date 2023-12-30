@@ -5,6 +5,12 @@ using BankManage.model.employee;
 using BankManage.dao;
 using BankManage.dao.impl;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
+using BankManage.component.pagination.pagerControl;
+using BankManage.model;
+using System.Windows.Media.Imaging;
+using System;
+using BankManage.utils;
 
 namespace BankManage.vm.employee {
     internal class EmpManageVm : NotifyProperty {
@@ -19,10 +25,25 @@ namespace BankManage.vm.employee {
             set => SetProperty(ref _empManage, value);
         }
 
+        //分页
+        private Pager<EmployeeInfo> _pager;
+        public Pager<EmployeeInfo> Pager {
+            get => _pager;
+            set => SetProperty(ref _pager, value);
+        }
+
+
         // 加载职员数据到 DataGrid
         public ICommand Page_Loaded { get; set; }
         private void ExecutePage_Loaded(object obj) {
-                empManage.employee_DataGrid = _empMapper.GetEmp();
+            empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
+
+            //分页初始化
+            Pager = new Pager<EmployeeInfo>(8, empManage.employee_DataGrid);
+            Pager.PagerUpdated += items => {
+                empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(items);
+            };
+            Pager.CurPageIndex = 1;
         }
 
 
@@ -31,7 +52,7 @@ namespace BankManage.vm.employee {
         private void ExecuteAddEmployeeButton_Click(object obj) {
             // 在 Frame 中导航到 AddPage
             _curPage.NavigationService.Navigate(new AddEmp());
-            empManage.employee_DataGrid = _empMapper.GetEmp();
+            empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
 
         }
 
@@ -59,7 +80,7 @@ namespace BankManage.vm.employee {
             } else {
                 MessageBox.Show("请选择需要删除信息的职员", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            empManage.employee_DataGrid = _empMapper.GetEmp();
+            empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
         }
 
         // 编辑按钮点击事件
@@ -74,7 +95,7 @@ namespace BankManage.vm.employee {
             } else {
                 MessageBox.Show("请选择需要编辑信息的职员", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            empManage.employee_DataGrid = _empMapper.GetEmp();
+            empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
         }
 
         // 查看详细信息按钮点击事件

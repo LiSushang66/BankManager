@@ -10,6 +10,8 @@ using BankManage.dao.impl;
 using BankManage.dao;
 using System.Windows.Input;
 using BankManage.view.employee;
+using BankManage.component.pagination.pagerControl;
+using System.Collections.ObjectModel;
 
 namespace BankManage.vm.employee {
     internal class PayManageVm:NotifyProperty {
@@ -23,10 +25,24 @@ namespace BankManage.vm.employee {
             set => SetProperty(ref _payManage, value);
         }
 
+        //分页
+        private Pager<EmployeeInfo> _pager;
+        public Pager<EmployeeInfo> Pager {
+            get => _pager;
+            set => SetProperty(ref _pager, value);
+        }
+
         //页面初始化
         public ICommand Page_Loaded { get; set; }
         private void ExecutePage_Loaded(object obj) {
-            payManage.employee_DataGrid = _empMapper.GetEmp();
+            payManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
+
+            //分页初始化
+            Pager = new Pager<EmployeeInfo>(8, payManage.employee_DataGrid);
+            Pager.PagerUpdated += items => {
+                payManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(items);
+            };
+            Pager.CurPageIndex = 1;
         }
 
 
@@ -42,7 +58,7 @@ namespace BankManage.vm.employee {
             } else {
                 MessageBox.Show("请选择需要编辑薪水的职员", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            payManage.employee_DataGrid= _empMapper.GetEmp();
+            payManage.employee_DataGrid= new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
         }
 
         public PayManageVm(Page curPage) {

@@ -57,6 +57,7 @@ namespace BankManage.component.pagination.pagerControl {
             _itemsSource = new ObservableCollection<T>(source);
             CalculatePaging();
         }
+
         public Pager(int pageSize, ObservableCollection<T> source) {
             _pageSize = pageSize;
             _itemsSource = source;

@@ -93,7 +93,7 @@ namespace BankManage.vm.employee {
 
         public ICommand SelectPhotoButton_Click { get; set; }
         private void ExecuteSelectPhotoButton_Click(object obj) {
-            image = FileUtils.UploadPicture();
+            image = FileUtils.UploadPicture(image);
         }
 
         public ICommand CancelButton_Click { get; set; }

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using static log4net.Appender.RollingFileAppender;
 
@@ -17,7 +19,7 @@ namespace BankManage.dao.impl {
 
 
         //新增员工
-        public bool InsertEmp(string employeeId,string employeeName,string password, string sex,decimal salary, string telphone, string idCard, byte[] photo) {
+        public bool InsertEmp(string employeeId, string employeeName, string password, string sex, decimal salary, string telphone, string idCard, byte[] photo) {
             using (BankEntities context = new BankEntities()) {
                 context.EmployeeInfo.Add(new EmployeeInfo {
                     EmployeeNo = employeeId,
