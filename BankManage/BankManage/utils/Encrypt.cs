@@ -14,6 +14,9 @@ namespace BankManage.utils {
         /// <param name="strIN">要加密的string字符串</param>
         /// <returns>SHA256加密之后的密文</returns>
         public static string SHA256Encrypt(string strIN) {
+            if (string.IsNullOrEmpty(strIN)) {
+                return "";
+            }
             byte[] tmpByte;
             SHA256 sha256 = new SHA256Managed();
             tmpByte = sha256.ComputeHash(GetKeyByteArray(strIN));

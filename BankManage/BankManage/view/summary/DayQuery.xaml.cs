@@ -42,9 +42,9 @@ namespace BankManage.view.summary {
             var query2 = from m in query
                          where m.dealType == "结息" || m.dealType == "取款"
                          select m.dealMoney;
-            if (query1.Count() != 0 && query2.Count() != 0) {
-                var s1 = query1.Sum();
-                var s2 = query2.Sum();
+            if (query1.Count() != 0 || query2.Count() != 0) {
+                var s1 = query1.Count() == 0 ? 0 : query1.Sum();
+                var s2 = query2.Count() == 0 ? 0 : query2.Sum();
                 this.textTotal.Text = string.Format("当日汇总收入金额:{0},总支出金额{1}", s1, s2);
             } else {
                 datagrid1.Visibility = Visibility.Hidden;

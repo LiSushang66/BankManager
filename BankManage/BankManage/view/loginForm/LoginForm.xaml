@@ -9,7 +9,7 @@
         xmlns:cntl="clr-namespace:BankManage.component.password"
         xmlns:vm="clr-namespace:BankManage.vm.loginForm"
         d:DataContext="{d:DesignInstance vm:LoginFormVm}"
-        Title="用户登录" Height="300" Width="400">
+        Title="用户登录" Height="350" Width="400">
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
             <b:InvokeCommandAction Command="{Binding Window_Loaded}" />
@@ -24,6 +24,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -64,11 +65,14 @@
                 <cntl:PasswordBoxBehavior/>
             </b:Interaction.Behaviors>
         </PasswordBox>
-        <Button  Grid.Row="3" Content="登录" Margin="12,18,218,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="62"
+        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" TextWrapping="Wrap" Text="验证码"  Height="23" Width="36" Margin="0,7,0,10"/>
+        <TextBox Text="{Binding loginForm.veriCode}" HorizontalAlignment="Left"  Width="190" Height="23" Grid.Column="1" Grid.Row="3" Margin="20,10,0,7"/>
+        <Image Grid.Column="1" Source="{Binding loginForm.captcha}" HorizontalAlignment="Left" Height="41" Margin="72,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="109"/>
+        <Button Command="{Binding RefreshCaptcha}" Content ="刷新" HorizontalAlignment="Left" Margin="20,23,0,0" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" />
+
+        <Button  Grid.Row="5" Content="登录" Margin="12,18,218,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="62"
                  Command="{Binding LogIn}" CommandParameter="{Binding ElementName=pass, Path=.}" Grid.Column="1"/>
-        <Button Grid.Row="3"  Content="取消" Margin="118,18,110,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="64" 
+        <Button Grid.Row="5"  Content="取消" Margin="118,18,110,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="64" 
                 Command="{Binding Exit}" Grid.Column="1"/>
-        <Image Grid.Column="1" Source="{Binding loginForm.captcha}" HorizontalAlignment="Left" Height="100" Margin="70,0,0,0" Grid.Row="5" VerticalAlignment="Top" Width="200"/>
-        <Button Command="{Binding RefreshCaptcha}" Content ="刷新" HorizontalAlignment="Left" Margin="20,23,0,0" Grid.Row="5" VerticalAlignment="Top" />
     </Grid>
 </Window>

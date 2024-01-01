@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:controls="clr-namespace:BankManage.component.pagination.pagerControl"
+      xmlns:c="clr-namespace:BankManage.view.summary"
+      d:DataContext="{d:DesignInstance Type=c:DayQuery}"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="500" Loaded="Page_Loaded">
     <Grid>

@@ -6,10 +6,11 @@ using SharpDX;
 using System;
 using System.Diagnostics;
 using System.Windows.Media.Imaging;
+using System.Runtime.InteropServices;
 
 namespace BankManage.utils {
     internal class Captcha {
-        public static System.Windows.Media.ImageSource Generate(string veriCode, string fileName) {
+        public static System.Windows.Media.ImageSource Generate(string veriCode,string fileName) {
             byte[] pngBytes = CreatePngImage(
                 width: 200, height: 100,
                 fontSize: 50.0f,
@@ -21,6 +22,17 @@ namespace BankManage.utils {
             //将图片保存在本地
             File.WriteAllBytes(@"..\..\static\images\captcha\" + fileName, pngBytes);
             return ByteToImage(pngBytes);
+        }
+
+        //四位验证码
+        public static string VeriCode(Random rnd) {
+            string str = @"0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ";
+            string veriCode = "";
+            // 返回大小写字母和数字混合
+            for (int i = 1; i <= 4; i++) {
+                 veriCode+=str.Substring(0 + rnd.Next(61), 1);
+            }
+            return veriCode;
         }
 
 

@@ -11,6 +11,7 @@ namespace BankManage.model.loginForm {
     internal class LoginFormModel : NotifyProperty {
         private string _txtCombox;
         private string _password;
+        private string _veriCode;
         private ImageSource _captcha;
         private List<string> _txtComboxItem = new List<string>();
         public string txtCombox {
@@ -20,6 +21,10 @@ namespace BankManage.model.loginForm {
         public string password {
             get => _password;
             set => SetProperty(ref _password, value);
+        }
+        public string veriCode {
+            get => _veriCode;
+            set => SetProperty(ref _veriCode, value);
         }
         public ImageSource captcha {
             get => _captcha;

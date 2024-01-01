@@ -23,7 +23,7 @@ namespace BankManage.view.summary {
     /// <summary>
     /// TotalQuery.xaml 的交互逻辑
     /// </summary>
-    public partial class TotalQuery : Page {
+    public partial class TotalQuery : Page,INotifyPropertyChanged {
         BankEntities context = new BankEntities();
         public TotalQuery() {
             InitializeComponent();
@@ -52,9 +52,7 @@ namespace BankManage.view.summary {
                         && (string.IsNullOrEmpty(txtAccount.Text) || txtAccount.Text == t.accountNo)
                         select t;
             }
-            datagrid1.ItemsSource = query.ToList();
-
-
+            dataGrid = new ObservableCollection<MoneyInfo>(query.ToList());
 
             //分页初始化
             Pager = new Pager<MoneyInfo>(8, dataGrid);

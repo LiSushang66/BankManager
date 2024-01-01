@@ -28,16 +28,23 @@ namespace BankManage.vm.loginForm {
         public ICommand LogIn { get; set; }
         private void ExecuteLogIn(object obj) {
             if (obj is PasswordBox pass) {
+                //验证码错误，直接返回
+                if (loginForm.veriCode.ToLower() != veriCode.ToLower()) {
+                    MessageBox.Show("验证码错误！");
+                    ExecuteRefreshCaptcha(null);
+                    return;
+                }
                 var query = _empMapper.GetEmp(loginForm.txtCombox, Encrypt.SHA256Encrypt(loginForm.password));
                 if (query.Count() > 0) {
                     var q = query.First();
                     UserName = _empMapper.GetEmp(q.EmployeeNo).First().EmployeeName;
-                    LogHelper.Loginfo.Info(UserName+"登录成功");
+                    LogHelper.Loginfo.Info(UserName + "登录成功");
                     _curWindow.Close();
                 } else {
                     LogHelper.Loginfo.Info("登录失败");
                     MessageBox.Show("登录失败！");
                     loginForm.password = "";
+                    ExecuteRefreshCaptcha(null);
                     pass.Focus();
                 }
             }
@@ -67,15 +74,18 @@ namespace BankManage.vm.loginForm {
 
         //刷新验证码
         public ICommand RefreshCaptcha { get; set; }
+        string veriCode;
         private void ExecuteRefreshCaptcha(object sender) {
-            string capName = Uuid.GetUid("hh.png");
-            loginForm.captcha = Captcha.Generate("1234", capName);
+            veriCode = Captcha.VeriCode(new Random());
+            string capName = Uuid.GetUid(".png");
+            loginForm.captcha = Captcha.Generate(veriCode, capName);
             Console.WriteLine(capName);
         }
         public LoginFormVm(Window curWindow) {
             UserName = string.Empty;
             _curWindow = curWindow;
             _curWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ExecuteRefreshCaptcha(null);
 
             LogIn = new RelayCommand(ExecuteLogIn);
             Exit = new RelayCommand(ExecuteExit);
