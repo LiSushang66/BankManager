@@ -466,11 +466,7 @@
       <DependentUpon>Bank.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="static\images\captcha\0db7cb12f4d54373bd8a16f365b2b48f.png" />
-    <Resource Include="static\images\captcha\6fc975291eac4a0db44dd31486cdd9da.png" />
-    <Resource Include="static\images\captcha\7be961c78a9e4c45b7fe4aacd0478ac3.png" />
-    <Resource Include="static\images\captcha\a56b9c04be9d495a9ce1d53c7a647d74.png" />
-    <Resource Include="static\images\captcha\dca2f60d8c4d4e3c944fcddabeaf91a3.png" />
+    <Resource Include="static\images\captcha\4946ac4f22c744f9a313d579289346ee.png" />
     <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
   </ItemGroup>
   <ItemGroup>
