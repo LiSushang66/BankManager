@@ -54,6 +54,16 @@ namespace BankManage.view.summary {
             button_1.IsEnabled = true;
             switch (queryType.SelectedIndex) {
                 case 0:
+                    txtID.Clear(); //无条件
+                    txtID.IsEnabled = false;
+                    txtAccount.Clear();
+                    txtAccount.IsEnabled = false;
+                    beginTime.SelectedDate = null;
+                    beginTime.IsEnabled = false;
+                    endTime.SelectedDate = null;
+                    endTime.IsEnabled = false;
+                    break;
+                case 1:
                     txtID.Clear(); //身份证
                     txtID.IsEnabled = true;
                     txtAccount.Clear();
@@ -63,7 +73,7 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = false;
                     break;
-                case 1:
+                case 2:
                     txtID.Clear(); //账号
                     txtID.IsEnabled = false;
                     txtAccount.Clear();
@@ -73,7 +83,7 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = false;
                     break;
-                case 2:
+                case 3:
                     txtID.Clear(); //时间
                     txtID.IsEnabled = false;
                     txtAccount.Clear();
@@ -83,7 +93,7 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = true;
                     break;
-                case 3:
+                case 4:
                     txtID.Clear(); //身份证和账号
                     txtID.IsEnabled = true;
                     txtAccount.Clear();
@@ -93,7 +103,7 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = false;
                     break;
-                case 4:
+                case 5:
                     txtID.Clear(); //身份证和时间
                     txtID.IsEnabled = true;
                     txtAccount.Clear();
@@ -103,7 +113,7 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = true;
                     break;
-                case 5:
+                case 6:
                     txtID.Clear(); //账号和时间
                     txtID.IsEnabled = false;
                     txtAccount.Clear();
@@ -113,18 +123,8 @@ namespace BankManage.view.summary {
                     endTime.SelectedDate = null;
                     endTime.IsEnabled = true;
                     break;
-                case 6:
+                case 7:
                     txtID.Clear(); //身份证和账号和时间
-                    txtID.IsEnabled = true;
-                    txtAccount.Clear();
-                    txtAccount.IsEnabled = true;
-                    beginTime.SelectedDate = null;
-                    beginTime.IsEnabled = true;
-                    endTime.SelectedDate = null;
-                    endTime.IsEnabled = true;
-                    break;
-                default:
-                    txtID.Clear(); //无条件
                     txtID.IsEnabled = true;
                     txtAccount.Clear();
                     txtAccount.IsEnabled = true;

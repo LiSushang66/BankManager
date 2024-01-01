@@ -30,6 +30,7 @@
             <TextBlock Text="账户查询" FontSize="20" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"></TextBlock>
             <Label Margin="7" Grid.Row="1">查询方式：</Label>
             <ComboBox Name="queryType" Grid.Row="1" Grid.Column="1" SelectionChanged="QueryTypeSelectionChanged">
+                <ComboBoxItem Content="不限条件"></ComboBoxItem>
                 <ComboBoxItem Content="身份证"></ComboBoxItem>
                 <ComboBoxItem Content="账号"></ComboBoxItem>
                 <ComboBoxItem Content="时间"></ComboBoxItem>
