@@ -62,7 +62,7 @@ namespace BankManage.view.summary {
                 dataGrid = new ObservableCollection<MoneyInfo>(items);
             };
             Pager.CurPageIndex = 1;
-        }
+          }
 
 
 

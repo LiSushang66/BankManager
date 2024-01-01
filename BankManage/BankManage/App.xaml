@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="static/style/DataGridStyle.xaml" />
                 
                 <!--分页样式-->
-                <ResourceDictionary Source="static/style/PageBarStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="static/style/PageBarStyle.xaml"/>
 
                 <!--Material Ui-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
