@@ -37,8 +37,8 @@ namespace BankManage.vm {
             //默认显示当前页面
             main.uri = new Uri("view/money/OperateRecord.xaml", UriKind.Relative);
             //启动登陆窗体
-            //LoginForm login = new LoginForm();
-            //login.ShowDialog();
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
         }
         public MainVm(Window curWindow) {
             LogHelper.Loginfo.Info("主窗体程序启动");

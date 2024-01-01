@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:BankManage.component.pagination.pagerControl"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="500" Loaded="Page_Loaded">
     <Grid>
@@ -12,7 +13,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="当日汇总" FontSize="20" TextAlignment="Center" Grid.Row="0"></TextBlock>
-        <DataGrid  Grid.Row="1" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1"  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+        <DataGrid  Grid.Row="1" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1"  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" ItemsSource="{Binding dataGrid}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="60" />
                 <DataGridTemplateColumn Header="处理时间" Width="150"
@@ -23,6 +24,11 @@
                 <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" />
             </DataGrid.Columns>
         </DataGrid>
+        <controls:PagerBar Grid.Row="1" Margin="5"
+                 HorizontalAlignment="Center"
+                 PageSize="{Binding Path=Pager.PageSize, Mode=TwoWay}"
+                 PageCount="{Binding Path=Pager.PageCount, Mode=TwoWay}"
+                 CurrentPageIndex="{Binding Path=Pager.CurPageIndex, Mode=TwoWay}"/>
         <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>

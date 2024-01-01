@@ -46,6 +46,7 @@ namespace BankManage.model
                     custom = new CustomFixed();
                     break;
                 case "零存整取":
+                    custom = new CustomSpecified();
                     break;
             }
             custom.AccountInfo.accountType = accountType;

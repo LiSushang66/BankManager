@@ -1,5 +1,6 @@
 ﻿using BankManage.domain;
 using BankManage.model;
+using BankManage.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,8 @@ namespace BankManage.view.money {
             rateType.Content = Custom.AccountInfo.rateType;
             accountType.Content = Custom.AccountInfo.accountType;
             txtMoney.Content = Custom.AccountBalance;
+
+            Custom.AccountInfo.accountPass = Encrypt.SHA256Encrypt(Custom.AccountInfo.accountPass);
         }
 
 

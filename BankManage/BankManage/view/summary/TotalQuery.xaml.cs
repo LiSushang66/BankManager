@@ -1,8 +1,12 @@
 ﻿using BankManage;
+using BankManage.component.pagination.pagerControl;
 using BankManage.vm.summary;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +27,7 @@ namespace BankManage.view.summary {
         BankEntities context = new BankEntities();
         public TotalQuery() {
             InitializeComponent();
+            this.DataContext = this;
             this.Unloaded += TotalQuery_Unloaded;
         }
 
@@ -48,6 +53,15 @@ namespace BankManage.view.summary {
                         select t;
             }
             datagrid1.ItemsSource = query.ToList();
+
+
+
+            //分页初始化
+            Pager = new Pager<MoneyInfo>(8, dataGrid);
+            Pager.PagerUpdated += items => {
+                dataGrid = new ObservableCollection<MoneyInfo>(items);
+            };
+            Pager.CurPageIndex = 1;
         }
 
         private void QueryTypeSelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -134,6 +148,56 @@ namespace BankManage.view.summary {
                     endTime.IsEnabled = true;
                     break;
             }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //以下是分页内容
+        private Pager<MoneyInfo> _pager;
+        public Pager<MoneyInfo> Pager {
+            get => _pager;
+            set {
+                _pager = value;
+                OnPropertyChanged(nameof(Pager));
+            }
+        }
+
+        private ObservableCollection<MoneyInfo> _dataGrid;
+        public ObservableCollection<MoneyInfo> dataGrid {
+            get => _dataGrid;
+            set {
+                _dataGrid = value;
+                OnPropertyChanged(nameof(dataGrid));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

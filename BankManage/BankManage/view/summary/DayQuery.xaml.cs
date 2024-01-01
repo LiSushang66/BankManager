@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-
+using BankManage.component.pagination.pagerControl;
 using BankManage.utils;
 using BankManage.vm.summary;
 
@@ -12,10 +15,11 @@ namespace BankManage.view.summary {
     /// DayQuery.xaml 的交互逻辑
     /// 当日汇总
     /// </summary>
-    public partial class DayQuery : Page {
+    public partial class DayQuery : Page,INotifyPropertyChanged {
         BankEntities context = new BankEntities();
         public DayQuery() {
             InitializeComponent();
+            this.DataContext = this;
             this.Unloaded += DayQuery_Unloaded;
         }
 
@@ -29,7 +33,7 @@ namespace BankManage.view.summary {
             var query = from t in context.MoneyInfo
                         where t.dealDate.Year == DateTime.Now.Year && t.dealDate.Month == DateTime.Now.Month && t.dealDate.Day == DateTime.Now.Day
                         select t;
-            this.datagrid1.ItemsSource = query.ToList();
+            dataGrid = new ObservableCollection<MoneyInfo>(query.ToList());
             //查询当日的总收入金额
             var query1 = from v in query
                          where v.dealType == "开户" || v.dealType == "存款"
@@ -49,6 +53,56 @@ namespace BankManage.view.summary {
             }
 
 
+
+
+
+            //分页初始化
+            Pager = new Pager<MoneyInfo>(8, dataGrid);
+            Pager.PagerUpdated += items => {
+                dataGrid = new ObservableCollection<MoneyInfo>(items);
+            };
+            Pager.CurPageIndex = 1;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //以下是分页内容
+        private Pager<MoneyInfo> _pager;
+        public Pager<MoneyInfo> Pager {
+            get => _pager;
+            set {
+                _pager = value;
+                OnPropertyChanged(nameof(Pager));
+            }
+        }
+
+        private ObservableCollection<MoneyInfo> _dataGrid;
+        public ObservableCollection<MoneyInfo> dataGrid {
+            get => _dataGrid;
+            set {
+                _dataGrid = value;
+                OnPropertyChanged(nameof(dataGrid));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
