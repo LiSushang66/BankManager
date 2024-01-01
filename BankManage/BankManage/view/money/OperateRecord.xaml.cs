@@ -19,12 +19,9 @@ namespace BankManage.view.money
     /// <summary>
     /// OperateRecord.xaml 的交互逻辑
     /// </summary>
-    public partial class OperateRecord : Page
-    {
-        public OperateRecord()
-        {
+    public partial class OperateRecord : Page {
+        public OperateRecord() {
             InitializeComponent();
-            this.DataContext = new OperateRecordVm();
             BankEntities context = new BankEntities();
             var query = from t in context.MoneyInfo
                         select t;

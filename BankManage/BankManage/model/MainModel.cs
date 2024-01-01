@@ -8,8 +8,6 @@ namespace BankManage.model {
         public Uri uri {
             get => _uri;
             set {
-                if (value == _uri)
-                    return;
                 _uri = value;
                 OnPropertyChanged();
             }

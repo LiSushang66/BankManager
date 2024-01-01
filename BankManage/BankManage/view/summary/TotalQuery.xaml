@@ -1,5 +1,5 @@
 ﻿<Page x:Class="BankManage.view.summary.TotalQuery"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -19,18 +19,46 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="账户查询" FontSize="20" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" ></TextBlock>
-            <TextBlock Margin="7"  Grid.Row="1">账户：</TextBlock>
-            <TextBox Name="txtID" Margin="5" Grid.Column="1"  Grid.Row="1"></TextBox>
-            <Button  Margin="5" Padding="2" Grid.Column="2"  Grid.Row="1" Click="Button_Click_1">查询</Button>
+
+
+            <TextBlock Text="账户查询" FontSize="20" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3"></TextBlock>
+            <Label Margin="7" Grid.Row="1">查询方式：</Label>
+            <ComboBox Name="queryType" Grid.Row="1" Grid.Column="1" SelectionChanged="QueryTypeSelectionChanged">
+                <ComboBoxItem Content="身份证"></ComboBoxItem>
+                <ComboBoxItem Content="账号"></ComboBoxItem>
+                <ComboBoxItem Content="时间"></ComboBoxItem>
+                <ComboBoxItem Content="身份证和账号"></ComboBoxItem>
+                <ComboBoxItem Content="身份证和时间"></ComboBoxItem>
+                <ComboBoxItem Content="账号和时间"></ComboBoxItem>
+                <ComboBoxItem Content="身份证和账号和时间"></ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Margin="7" Grid.Row="2">身份证号：</TextBlock>
+            <TextBox Name="txtID" Margin="7" Grid.Column="1"  Grid.Row="2" IsEnabled="False"></TextBox>
+
+            <TextBlock Margin="7" Grid.Row="3">账户：</TextBlock>
+            <TextBox Name="txtAccount" Margin="7" Grid.Column="1"  Grid.Row="3" IsEnabled="False"></TextBox>
+
+            <TextBlock Margin="7" Grid.Row="4">时间：</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4">
+                <Label Content="From:"></Label>
+                <DatePicker x:Name="beginTime"  IsEnabled="False"></DatePicker>
+                <Label Content="To:"></Label>
+                <DatePicker x:Name="endTime"  IsEnabled="False"></DatePicker>
+            </StackPanel>
+            <Button x:Name="button_1" Margin="7" Padding="2" Grid.Column="2"  Grid.Row="2" Click="Button_Click_1" IsEnabled="False">查询</Button>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-               <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1" CanUserAddRows="False" CanUserDeleteRows="False" >
+            <DataGrid Grid.Row="0" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="60" />
                     <DataGridTemplateColumn Header="处理时间" Width="150"

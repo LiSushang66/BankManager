@@ -178,6 +178,7 @@
     <Compile Include="dao\impl\AccMapperImpl.cs" />
     <Compile Include="dao\impl\EmpMapperImpl.cs" />
     <Compile Include="dao\EmpMapper.cs" />
+    <Compile Include="domain\CustomSpecified.cs" />
     <Compile Include="EmployeeInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
@@ -191,7 +192,6 @@
     <Compile Include="model\employee\PayManageModel.cs" />
     <Compile Include="model\loginForm\LoginFormModel.cs" />
     <Compile Include="model\MainModel.cs" />
-    <Compile Include="model\PaginationItem.cs" />
     <Compile Include="model\passChange\ChangeAccountModel.cs" />
     <Compile Include="model\passChange\ChangeOperateModel.cs" />
     <Compile Include="MoneyInfo.cs">
@@ -200,6 +200,7 @@
     <Compile Include="RateInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="utils\Rate.cs" />
     <Compile Include="view\employee\AddEmp.xaml.cs">
       <DependentUpon>AddEmp.xaml</DependentUpon>
     </Compile>
@@ -221,6 +222,9 @@
     <Compile Include="view\loginForm\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\money\AccountChecking.xaml.cs">
+      <DependentUpon>AccountChecking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\money\Deposit.xaml.cs">
       <DependentUpon>Deposit.xaml</DependentUpon>
     </Compile>
@@ -238,6 +242,9 @@
     </Compile>
     <Compile Include="view\passChange\ChangeOperate.xaml.cs">
       <DependentUpon>ChangeOperate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\rateManage\SlideRation.xaml.cs">
+      <DependentUpon>SlideRation.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\summary\DayQuery.xaml.cs">
       <DependentUpon>DayQuery.xaml</DependentUpon>
@@ -270,15 +277,11 @@
     <Compile Include="vm\money\DepositVm.cs" />
     <Compile Include="vm\money\WithdrawVm.cs" />
     <Compile Include="vm\money\NewAccountVm.cs" />
-    <Compile Include="vm\pagination\PaginationVm.cs" />
     <Compile Include="vm\NotifyProperty.cs" />
     <Compile Include="vm\passChange\ChangeAccountVm.cs" />
     <Compile Include="vm\passChange\ChangeOperateVm.cs" />
     <Compile Include="vm\rateManage\RatePage.cs" />
     <Compile Include="vm\RelayCommand.cs" />
-    <Compile Include="component\pagination\PageBar.xaml.cs">
-      <DependentUpon>PageBar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="vm\summary\DayQueryVm.cs" />
     <Compile Include="vm\summary\TotalQueryVm.cs" />
     <Page Include="Main.xaml">
@@ -290,7 +293,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="model\DataOperation.cs" />
-    <Compile Include="model\Enums.cs" />
+    <Compile Include="enumeration\Enums.cs" />
+    <Page Include="static\style\PageBarStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\employee\AddEmp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +330,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\money\AccountChecking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\money\Deposit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -347,6 +358,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\rateManage\SlideRation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\summary\DayQuery.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -367,23 +382,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="static\style\PageBarStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="static\style\Share.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="component\pagination\PageBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\Custom.cs" />
-    <Compile Include="model\CustomChecking.cs" />
-    <Compile Include="model\CustomFixed.cs" />
+    <Compile Include="domain\Custom.cs" />
+    <Compile Include="domain\CustomChecking.cs" />
+    <Compile Include="domain\CustomFixed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -19,5 +19,6 @@ namespace BankManage
         public string accountName { get; set; }
         public string accountPass { get; set; }
         public string accountType { get; set; }
+        public string rateType { get; set; }
     }
 }

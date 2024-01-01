@@ -51,7 +51,7 @@ namespace BankManage.vm.employee {
         public ICommand AddEmployeeButton_Click { get; set; }
         private void ExecuteAddEmployeeButton_Click(object obj) {
             // 在 Frame 中导航到 AddPage
-            _curPage.NavigationService.Navigate(new AddEmp());
+            _curPage.NavigationService.Navigate(new Uri("view/employee/AddEmp.xaml", UriKind.Relative));
             empManage.employee_DataGrid = new ObservableCollection<EmployeeInfo>(_empMapper.GetEmp());
 
         }

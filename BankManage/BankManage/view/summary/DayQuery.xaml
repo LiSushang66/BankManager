@@ -12,17 +12,17 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Text="当日汇总" FontSize="20" TextAlignment="Center" Grid.Row="0"></TextBlock>
-        <DataGrid  Grid.Row="1" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1"  CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid  Grid.Row="1" AutoGenerateColumns="False" Background="#FFDDFBF9" Name="datagrid1"  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
             <DataGrid.Columns>
-                    <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="60" />
+                <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="60" />
                 <DataGridTemplateColumn Header="处理时间" Width="150"
                         SortMemberPath="BirthDate"
                         CellTemplate="{StaticResource DealDateTemplate}" />
                 <DataGridTextColumn Header="处理类型" Binding="{Binding dealType}" Width="100"/>
-                    <DataGridTextColumn Header="处理金额" Binding="{Binding dealMoney}" Width="100"/>
-                    <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" />
-                </DataGrid.Columns>
-            </DataGrid>
+                <DataGridTextColumn Header="处理金额" Binding="{Binding dealMoney}" Width="100"/>
+                <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
         <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>

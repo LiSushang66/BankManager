@@ -123,14 +123,24 @@
                     </StackPanel>
                 </Expander>
                 <Expander Header="利率设置">
-                    <Button Height="50" Width="60" Tag="view/rateManage/RatePage.xaml"
+                    <StackPanel>
+                        <Button Height="50" Width="60" Tag="view/rateManage/RatePage.xaml"
                             Command="{Binding Button_Click}"
                             CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                        <StackPanel Orientation="Vertical">
-                            <Image Source="static/images/public/btn1.png" Width="30" />
-                            <TextBlock Text="利率设置" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="static/images/public/btn1.png" Width="30" />
+                                <TextBlock Text="利率设置" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Height="50" Width="60" Tag="view/rateManage/SlideRation.xaml"
+                            Command="{Binding Button_Click}"
+                            CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="static/images/public/btn1.png" Width="30" />
+                                <TextBlock Text="利率滑动" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </Expander>
                 <Expander Header="系统帮助">
                 </Expander>

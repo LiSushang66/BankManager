@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using BankManage.domain;
+using System.Linq;
 
 namespace BankManage.model
 {
@@ -102,6 +103,139 @@ namespace BankManage.model
                      where t.rationType == type
                      select t.rationValue).Single();
             return q.Value;
+        }
+
+
+
+
+
+        public static MoneyInfo CreateDealRecord() {
+            MoneyInfo deal = new MoneyInfo();
+            return deal;
+        }
+
+        public static MoneyInfo GetRecentDeal(string accountNumber) {
+            MoneyInfo deal = null;
+            BankEntities c = new BankEntities();
+            try {
+                var query = from t in c.MoneyInfo
+                            where t.accountNo == accountNumber
+                            orderby t.dealDate descending
+                            select t;
+                if (query.Count() > 0) {
+                    var q = query.First();
+                    deal = CreateDealRecord();
+                    deal.accountNo = accountNumber;
+                    deal.balance = q.balance;
+                    deal.dealDate = q.dealDate;
+                    deal.dealMoney = q.dealMoney;
+                    deal.dealType = q.dealType;
+                }
+
+            } catch {
+                return null;
+            }
+            return deal;
+        }
+
+
+        public static MoneyInfo GetLastDeal(string accountNumber) {
+            MoneyInfo deal = null;
+            BankEntities c = new BankEntities();
+            try {
+                var query = from t in c.MoneyInfo
+                            where t.accountNo == accountNumber && t.dealType == "取款"
+                            orderby t.dealDate descending
+                            select t;
+                if (query.Count() > 0) {
+                    var q = query.First();
+                    deal = CreateDealRecord();
+                    deal.accountNo = accountNumber;
+                    deal.balance = q.balance;
+                    deal.dealDate = q.dealDate;
+                    deal.dealMoney = q.dealMoney;
+                    deal.dealType = q.dealType;
+                }
+            } catch {
+                return null;
+            }
+            return deal;
+        }
+
+
+        public static MoneyInfo GetOpenAccount(string accountNumber) {
+            MoneyInfo deal = null;
+            BankEntities c = new BankEntities();
+            try {
+                var query = from t in c.MoneyInfo
+                            where t.accountNo == accountNumber && t.dealType == "开户"
+                            orderby t.dealDate descending
+                            select t;
+                if (query.Count() > 0) {
+                    var q = query.First();
+                    deal = CreateDealRecord();
+                    deal.accountNo = accountNumber;
+                    deal.balance = q.balance;
+                    deal.dealDate = q.dealDate;
+                    deal.dealMoney = q.dealMoney;
+                    deal.dealType = q.dealType;
+                }
+            } catch {
+                return null;
+            }
+            return deal;
+        }
+
+
+        public static MoneyInfo GetRecentDeposit(string accountNumber) {
+            MoneyInfo deal = null;
+            BankEntities c = new BankEntities();
+            try {
+                var query = from t in c.MoneyInfo
+                            where t.accountNo == accountNumber && t.dealType == "存款"
+                            orderby t.dealDate descending
+                            select t;
+                if (query.Count() > 0) {
+                    var q = query.First();
+                    deal = CreateDealRecord();
+                    deal.accountNo = accountNumber;
+                    deal.balance = q.balance;
+                    deal.dealDate = q.dealDate;
+                    deal.dealMoney = q.dealMoney;
+                    deal.dealType = q.dealType;
+                }
+            } catch {
+                return null;
+            }
+            return deal;
+        }
+
+
+        public static MoneyInfo GetRecentWithDraw(string accountNumber) {
+            MoneyInfo deal = null;
+            BankEntities c = new BankEntities();
+            try {
+                var query = from t in c.MoneyInfo
+                            where t.accountNo == accountNumber && t.dealType == "取款"
+                            orderby t.dealDate descending
+                            select t;
+                if (query.Count() > 0) {
+                    var q = query.First();
+                    deal = CreateDealRecord();
+                    deal.accountNo = accountNumber;
+                    deal.balance = q.balance;
+                    deal.dealDate = q.dealDate;
+                    deal.dealMoney = q.dealMoney;
+                    deal.dealType = q.dealType;
+                } else {
+                    deal = CreateDealRecord();
+                    deal.dealType = "没有取款记录";
+                }
+            } catch {
+
+                return null;
+            }
+            return deal;
         }
     }
 }
