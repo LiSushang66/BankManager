@@ -29,6 +29,7 @@ namespace BankManage.view.summary {
             InitializeComponent();
             this.DataContext = this;
             this.Unloaded += TotalQuery_Unloaded;
+            Button_Click_1(null, null);
         }
 
         void TotalQuery_Unloaded(object sender, RoutedEventArgs e) {
@@ -55,11 +56,15 @@ namespace BankManage.view.summary {
             dataGrid = new ObservableCollection<MoneyInfo>(query.ToList());
 
             //分页初始化
-            Pager = new Pager<MoneyInfo>(8, dataGrid);
-            Pager.PagerUpdated += items => {
-                dataGrid = new ObservableCollection<MoneyInfo>(items);
-            };
-            Pager.CurPageIndex = 1;
+            if (dataGrid.Count > 0) {
+                Pager = new Pager<MoneyInfo>(8, dataGrid);
+                Pager.PagerUpdated += items => {
+                    dataGrid = new ObservableCollection<MoneyInfo>(items);
+                };
+                Pager.CurPageIndex = 1;
+            } else {
+                pagerBar.Visibility = Visibility.Hidden;
+            }
         }
 
         private void QueryTypeSelectionChanged(object sender, SelectionChangedEventArgs e) {

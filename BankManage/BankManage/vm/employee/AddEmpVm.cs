@@ -80,9 +80,11 @@ namespace BankManage.vm.employee {
 
             // 验证用户输入
             if (ValidateInput()) {
+                if (addEmp.imgPhoto == null) {
+                    addEmp.imgPhoto = FileUtils.ImageToByte(new BitmapImage(new Uri(@"..\..\static\images\profilePhoto\defaultPhoto.jpg", UriKind.Relative)));
+                }
 
                 // 将 newEmployee 插入到数据库中
-
                 if (_empMapper.InsertEmp(addEmp.txtEmployeeId,addEmp.txtEmployeeName, addEmp.password, addEmp.txtSex, addEmp.txtSalary, addEmp.txtTelphone, addEmp.txtIdCard, addEmp.imgPhoto)) {
 
                     // 提示用户添加成功
