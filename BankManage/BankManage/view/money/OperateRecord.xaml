@@ -25,7 +25,7 @@
             </DataGrid>
             <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic"></TextBlock>
         </StackPanel>
-        <controls:PagerBar Grid.Row="1" Margin="5"
+        <controls:PagerBar x:Name="pagerBar"  Grid.Row="1" Margin="5"
            HorizontalAlignment="Center"
            PageSize="{Binding Path=Pager.PageSize, Mode=TwoWay}"
            PageCount="{Binding Path=Pager.PageCount, Mode=TwoWay}"

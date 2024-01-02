@@ -15,7 +15,7 @@ namespace BankManage.view.summary {
     /// DayQuery.xaml 的交互逻辑
     /// 当日汇总
     /// </summary>
-    public partial class DayQuery : Page,INotifyPropertyChanged {
+    public partial class DayQuery : Page, INotifyPropertyChanged {
         BankEntities context = new BankEntities();
         public DayQuery() {
             InitializeComponent();
@@ -57,12 +57,16 @@ namespace BankManage.view.summary {
 
 
             //分页初始化
-            Pager = new Pager<MoneyInfo>(8, dataGrid);
-            Pager.PagerUpdated += items => {
-                dataGrid = new ObservableCollection<MoneyInfo>(items);
-            };
-            Pager.CurPageIndex = 1;
-          }
+            if (dataGrid.Count > 0) {
+                Pager = new Pager<MoneyInfo>(8, dataGrid);
+                Pager.PagerUpdated += items => {
+                    dataGrid = new ObservableCollection<MoneyInfo>(items);
+                };
+                Pager.CurPageIndex = 1;
+            } else {
+                pagerBar.Visibility = Visibility.Hidden;
+            }
+        }
 
 
 

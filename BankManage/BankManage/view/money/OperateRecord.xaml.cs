@@ -42,11 +42,15 @@ namespace BankManage.view.money
 
 
             //分页初始化
-            Pager = new Pager<MoneyInfo>(8, datagrid1);
-            Pager.PagerUpdated += items => {
-                datagrid1 = new ObservableCollection<MoneyInfo>(items);
-            };
-            Pager.CurPageIndex = 1;
+            if (datagrid1.Count() > 0) {
+                Pager = new Pager<MoneyInfo>(8, datagrid1);
+                Pager.PagerUpdated += items => {
+                    datagrid1 = new ObservableCollection<MoneyInfo>(items);
+                };
+                Pager.CurPageIndex = 1;
+            } else {
+                pagerBar.Visibility = Visibility.Hidden;
+            }
         }
 
 
