@@ -22,12 +22,12 @@ namespace BankManage.view.money {
         string[] accTypes = Enum.GetNames(typeof(MoneyAccountType));
         public NewAccount() {
             InitializeComponent();
-
+            this.DataContext = new NewAccountVm();
             //放到页面加载的地方
             foreach (var accType in accTypes) {
                 comboBoxAccountType.Items.Add(accType);
             }
-            comboBoxAccountType.SelectedIndex = 0;
+            comboBoxAccountType.SelectedIndex = -1;
         }
 
 
@@ -35,8 +35,14 @@ namespace BankManage.view.money {
         //开户
         private void btnOk_Click(object sender, RoutedEventArgs e) {
             //检查输入
-            if (false) {
-                MessageBox.Show("验证错误");
+            if (comboBoxAccountType.SelectedIndex == -1) 
+            {
+                MessageBox.Show("请选择开户类型");
+                return;
+            }
+            if (rateType.SelectedItem == null) 
+            {
+                MessageBox.Show("请选择利率");
                 return;
             }
 
@@ -64,8 +70,6 @@ namespace BankManage.view.money {
         //选择类型改变时
         private void comboBoxAccountType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             string targetAccType = comboBoxAccountType.SelectedItem.ToString();
-
-
             using (BankEntities c = new BankEntities()) {
                 var q = from t in c.AccountInfo
                         where t.accountType == targetAccType

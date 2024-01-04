@@ -352,6 +352,9 @@
     <Compile Include="vm\MainVm.cs" />
     <Compile Include="vm\money\OperateRecordVm.cs" />
     <Compile Include="vm\money\DepositVm.cs" />
+    <Compile Include="vm\money\Validation\IDValidationRule.cs" />
+    <Compile Include="vm\money\Validation\NotEmptyValidationRule.cs" />
+    <Compile Include="vm\money\Validation\PasswordValidationRule.cs" />
     <Compile Include="vm\money\WithdrawVm.cs" />
     <Compile Include="vm\money\NewAccountVm.cs" />
     <Compile Include="vm\MultiBindingConverter.cs" />
