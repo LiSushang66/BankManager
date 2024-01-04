@@ -184,29 +184,14 @@
     <Compile Include="EmployeeInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="help\view\employee\AddEmp.xaml.cs">
-      <DependentUpon>AddEmp.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="help\view\employee\ChangeSalary.xaml.cs">
-      <DependentUpon>ChangeSalary.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="help\view\employee\EditEmp.xaml.cs">
-      <DependentUpon>EditEmp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="help\view\employee\EmpManage.xaml.cs">
       <DependentUpon>EmpManage.xaml</DependentUpon>
     </Compile>
     <Compile Include="help\view\employee\PayManage.xaml.cs">
       <DependentUpon>PayManage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="help\view\employee\ViewEmp.xaml.cs">
-      <DependentUpon>ViewEmp.xaml</DependentUpon>
-    </Compile>
     <Compile Include="help\view\loginForm\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="help\view\money\AccountChecking.xaml.cs">
-      <DependentUpon>AccountChecking.xaml</DependentUpon>
     </Compile>
     <Compile Include="help\view\money\Deposit.xaml.cs">
       <DependentUpon>Deposit.xaml</DependentUpon>
@@ -352,6 +337,9 @@
     <Compile Include="vm\MainVm.cs" />
     <Compile Include="vm\money\OperateRecordVm.cs" />
     <Compile Include="vm\money\DepositVm.cs" />
+    <Compile Include="vm\money\Validation\IDValidationRule.cs" />
+    <Compile Include="vm\money\Validation\NotEmptyValidationRule.cs" />
+    <Compile Include="vm\money\Validation\PasswordValidationRule.cs" />
     <Compile Include="vm\money\WithdrawVm.cs" />
     <Compile Include="vm\money\NewAccountVm.cs" />
     <Compile Include="vm\MultiBindingConverter.cs" />
@@ -362,18 +350,6 @@
     <Compile Include="vm\RelayCommand.cs" />
     <Compile Include="vm\summary\DayQueryVm.cs" />
     <Compile Include="vm\summary\TotalQueryVm.cs" />
-    <Page Include="help\view\employee\AddEmp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="help\view\employee\ChangeSalary.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="help\view\employee\EditEmp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="help\view\employee\EmpManage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -382,15 +358,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="help\view\employee\ViewEmp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="help\view\loginForm\LoginForm.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="help\view\money\AccountChecking.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
