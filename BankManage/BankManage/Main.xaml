@@ -2,151 +2,413 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:BankManage.vm" 
         d:DataContext="{d:DesignInstance Type=vm:MainVm}"
-        Title="Main" Height="600" Width="900" WindowStartupLocation="CenterScreen" >
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Title="Main" Height="700" Width="900" WindowStartupLocation="CenterScreen" >
+    <Window.Resources>
+        <vm:MultiBindingConverter x:Key="MultiBindingConverter" />
+    </Window.Resources>
     <DockPanel>
-        <DockPanel.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFF6F7F5" Offset="0"/>
-                <GradientStop Color="#FFD6F1D0" Offset="0.793"/>
-            </LinearGradientBrush>
-        </DockPanel.Background>
         <StackPanel DockPanel.Dock="Top" Height="60" OpacityMask="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-            <StackPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" SpreadMethod="Reflect">
-                    <GradientStop Color="#FFFEFFFE" Offset="0.03"/>
-                    <GradientStop Color="#FF08C957" Offset="0.503"/>
-                    <GradientStop Color="#FF1CCD34" Offset="0.694"/>
-                    <GradientStop Color="#FF64DD96" Offset="0.888"/>
-                    <GradientStop Color="#FFEDF1EF" Offset="0.025"/>
-                </LinearGradientBrush>
-            </StackPanel.Background>
-            <TextBlock></TextBlock>
-            <TextBlock FontSize="30" Height="40" FontWeight="Bold" Foreground="#FFFDFCFC" VerticalAlignment="Center" TextAlignment="Center" FontStyle="Italic">银行业务管理信息系统</TextBlock>
+            <materialDesign:ColorZone
+                  Mode="PrimaryMid"
+                  Padding="16">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                        <Button
+                            Style="{StaticResource MaterialDesignIconForegroundButton}" Width="32" Height="32"
+                            Tag="view/system/Theme.xaml"
+                            Command="{Binding Button_Click}">
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                    <Binding ElementName="tabSwitch"/>
+                                    <Binding ElementName="DrawerHost"/>
+                                    <Binding ElementName="helperFrame"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                            <materialDesign:PackIcon Kind="PaletteOutline" />
+                        </Button>
+                        <materialDesign:PopupBox
+                          PlacementMode="BottomAndAlignRightEdges">
+                            <ListBox>
+                                <Button Command="{Binding Button_Click_Help}" Tag="view/help/Help.xaml">
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                            <Binding ElementName="FrameDrawerHost"/>
+                                        </MultiBinding> 
+                                    </Button.CommandParameter>
+                                    帮助
+                                </Button>
+                                <Button Command="{Binding Button_Click}" Tag="view/system/About.xaml">
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                            <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                            <Binding ElementName="tabSwitch"/>
+                                            <Binding ElementName="DrawerHost"/>
+                                            <Binding ElementName="helperFrame"/>
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                    关于
+                                </Button>
+                                <Button Command="{Binding Button_Click_Exit}">退出</Button>
+                            </ListBox>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <ToggleButton x:Name="tabSwitch"
+                                      Command="{Binding ToggleButton_Click}"
+                                      Style="{DynamicResource MaterialDesignHamburgerToggleButton}">
+                            <ToggleButton.CommandParameter>
+                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                    <Binding ElementName="DrawerHost"/>
+                                </MultiBinding>
+                            </ToggleButton.CommandParameter>
+                        </ToggleButton>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Margin="16 0 0 0"
+                            Text="狗熊岭银行管理系统" />
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
         </StackPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel DockPanel.Dock="Left" Width="120"  >
-                <StackPanel.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="10 10 10 0" />
+
+        <materialDesign:DrawerHost x:Name="DrawerHost"
+              BorderBrush="{DynamicResource MaterialDesignDivider}"  IsLeftDrawerOpen="True" >
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="MouseEnter">
+                    <b:InvokeCommandAction Command="{Binding DrawerHost_MouseMove}">
+                        <b:InvokeCommandAction.CommandParameter>
+                            <MultiBinding Converter="{StaticResource MultiBindingConverter}" Mode="TwoWay">
+                                <MultiBinding.Bindings>
+                                    <Binding ElementName="tabSwitch"/>
+                                    <Binding ElementName="DrawerHost"/>
+                                </MultiBinding.Bindings>
+                            </MultiBinding>
+                        </b:InvokeCommandAction.CommandParameter>
+                    </b:InvokeCommandAction>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+
+            <materialDesign:DrawerHost.Style>
+                <Style
+                      TargetType="materialDesign:DrawerHost"
+                      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                    <Style.Triggers>
+                        <DataTrigger
+                              Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
+                              Value="True">
+                            <Setter
+                                Property="OverlayBackground"
+                                Value="{DynamicResource PrimaryHueMidBrush}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:DrawerHost.Style>
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Height="40" Margin="16,1,16,16" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+                        <materialDesign:PackIcon Kind="AccountCircle" VerticalAlignment="Center" Width="32" Height="32" />
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0">Administrator</Label>
+                        <materialDesign:PackIcon Kind="WeatherNight" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="107,0,0,0" />
+                        <ToggleButton Command="{Binding ToggleButton_Click_1}"
+                                      CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+                                      Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                                      ToolTip="夜间模式开关"/>
+                    </StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" Height="550" Margin="0,5,0,0" DockPanel.Dock="Top" Grid.Row="1">
+                        <StackPanel>
+                            <StackPanel  Margin="16">
+                                <Expander Header="存款取款" ExpandDirection="Down">
+                                    <StackPanel>
+                                        <Button Tag="view/money/NewAccount.xaml"
+                                                Command="{Binding Button_Click}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="16"
+                                                ToolTip="创建一个新账户"
+                                                Content="开户" Margin="10,3">
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button Tag="view/money/Deposit.xaml"
+                                                Command="{Binding Button_Click}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="16"
+                                                ToolTip="存款"
+                                                Content="存款" Margin="10,3">
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button Tag="view/money/Withdraw.xaml" 
+                                                Command="{Binding Button_Click}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="16"
+                                                ToolTip="取款"
+                                                Content="取款" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="汇总查询">
+                                    <StackPanel>
+                                        <Button  Tag="view/summary/DayQuery.xaml" 
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="查看当日的汇总数据"
+                                                 Content="当日汇总" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button  Tag="view/summary/TotalQuery.xaml"
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="查看汇总数据"
+                                                 Content="汇总查询" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+
+
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="职员管理">
+                                    <StackPanel>
+                                        <Button  Tag="view/employee/EmpManage.xaml" 
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="修改职员信息"
+                                                 Content="职员管理" Margin="10,3">
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button  Tag="view/employee/PayManage.xaml" 
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="修改职员工资"
+                                                 Content="调整工资" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="更改密码">
+                                    <StackPanel>
+                                        <Button Height="50" Width="90" Tag="view/passChange/ChangeAccount.xaml" 
+                                                Command="{Binding Button_Click}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="16"
+                                                ToolTip="更改指定账户的密码"
+                                                Content="更改账户密码" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button x:Name="R" Height="50" Width="90" Tag="view/passChange/ChangeOperate.xaml"
+                                                Command="{Binding Button_Click}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                materialDesign:ButtonAssist.CornerRadius="16"
+                                                ToolTip="更改指定操作员的密码"
+                                                Content="更改操作员密码" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="利率设置">
+                                    <StackPanel>
+                                        <Button  Tag="view/rateManage/RatePage.xaml"
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="更改管理系统的利率"
+                                                 Content="文字设置" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                        <Button  Tag="view/rateManage/SlideRation.xaml"
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="更改管理系统的利率"
+                                                 Content="图形设置" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander Header="系统帮助">
+                                    <Button  Tag="view/help/Help.xaml"
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="查看系统帮助"
+                                                 Content="帮助说明" Margin="10,3" >
+                                        <Button.CommandParameter>
+                                            <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                <Binding ElementName="tabSwitch"/>
+                                                <Binding ElementName="DrawerHost"/>
+                                                <Binding ElementName="helperFrame"/>
+                                            </MultiBinding>
+                                        </Button.CommandParameter>
+                                    </Button>
+                                </Expander>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+            <materialDesign:DrawerHost x:Name="FrameDrawerHost" BorderBrush="{DynamicResource MaterialDesignDivider}" IsLeftDrawerOpen="False" >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseEnter">
+                        <b:InvokeCommandAction Command="{Binding DrawerHost_MouseMove}">
+                            <b:InvokeCommandAction.CommandParameter>
+                                <MultiBinding Converter="{StaticResource MultiBindingConverter}" Mode="TwoWay">
+                                    <MultiBinding.Bindings>
+                                        <Binding ElementName="tabSwitch"/>
+                                        <Binding ElementName="DrawerHost"/>
+                                    </MultiBinding.Bindings>
+                                </MultiBinding>
+                            </b:InvokeCommandAction.CommandParameter>
+                        </b:InvokeCommandAction>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+
+                <materialDesign:DrawerHost.Style>
+                    <Style
+                      TargetType="materialDesign:DrawerHost"
+                      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
+                        <Style.Triggers>
+                            <DataTrigger
+                              Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
+                              Value="True">
+                                <Setter
+                                Property="OverlayBackground"
+                                Value="{DynamicResource PrimaryHueMidBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
                     </Style>
-                </StackPanel.Resources>
-                <Expander Header="存款取款" ExpandDirection="Down" IsExpanded="True">
-                    <StackPanel>
-                        <Button Height="50" Width="60" Tag="view/money/NewAccount.xaml" 
-                                Command="{Binding Button_Click}" 
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="开户" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                        <Button Height="50" Width="60" Tag="view/money/Deposit.xaml"
-                                Command="{Binding Button_Click}"
-                            CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="存款" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                        <Button Height="50" Width="60" Tag="view/money/Withdraw.xaml" 
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="取款" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="汇总查询">
-                    <StackPanel>
-                        <Button Height="50" Width="60" Tag="view/summary/DayQuery.xaml" 
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="当日汇总" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                        <Button Height="50" Width="60" Tag="view/summary/TotalQuery.xaml"
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="汇总查询" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="职员管理">
-                    <StackPanel>
-                        <Button Height="50" Width="60" Tag="view/employee/EmpManage.xaml" 
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="职员管理" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                        <Button Height="50" Width="60" Tag="view/employee/PayManage.xaml" 
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="调整工资" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="更改密码">
-                    <StackPanel>
-                        <Button Height="50" Width="90" Tag="view/passChange/ChangeAccount.xaml" 
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="更改账户密码" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="R" Height="50" Width="90" Tag="view/passChange/ChangeOperate.xaml"
-                                Command="{Binding Button_Click}"
-                                CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="更改员工密码" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="利率设置">
-                    <StackPanel>
-                        <Button Height="50" Width="60" Tag="view/rateManage/RatePage.xaml"
-                            Command="{Binding Button_Click}"
-                            CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="利率设置" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Height="50" Width="60" Tag="view/rateManage/SlideRation.xaml"
-                            Command="{Binding Button_Click}"
-                            CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="static/images/public/btn1.png" Width="30" />
-                                <TextBlock Text="利率滑动" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </Expander>
-                <Expander Header="系统帮助">
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
-        <Frame Source="{Binding main.uri}" Margin=" 5 20 40 20" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" />
-        <!--<Frame Source="component/pagination/pageBar.xaml"></Frame>-->
+                </materialDesign:DrawerHost.Style>
+                <materialDesign:DrawerHost.RightDrawerContent>
+                    <Frame x:Name="helperFrame" Width="600" Height="600"/>
+                </materialDesign:DrawerHost.RightDrawerContent>
+                <materialDesign:DrawerHost.BottomDrawerContent>
+                    <Frame x:Name="aboutFrame" Height="400"/>
+                </materialDesign:DrawerHost.BottomDrawerContent>
+                <Grid>
+                    <DockPanel Grid.ColumnSpan="3" Grid.RowSpan="3">
+                        <Frame Source="{Binding main.uri}" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" />
+                    </DockPanel>
+                    <Button
+                        Tag="view/system/Welcome.xaml"
+                        
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        HorizontalAlignment="Right"
+                        ToolTip="MaterialDesignFloatingActionMiniButton" VerticalAlignment="Bottom" Margin="0,0,20,20"
+                        Command="{Binding Button_Click}">
+                        <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                            <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                            <Binding ElementName="tabSwitch"/>
+                            <Binding ElementName="DrawerHost"/>
+                            <Binding ElementName="helperFrame"/>
+                        </MultiBinding>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="HomeOutline" />
+                    </Button>
+                </Grid>
+
+            </materialDesign:DrawerHost>
+        </materialDesign:DrawerHost>
     </DockPanel>
 </Window>
+

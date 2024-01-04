@@ -184,6 +184,66 @@
     <Compile Include="EmployeeInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="help\view\employee\AddEmp.xaml.cs">
+      <DependentUpon>AddEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\employee\ChangeSalary.xaml.cs">
+      <DependentUpon>ChangeSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\employee\EditEmp.xaml.cs">
+      <DependentUpon>EditEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\employee\EmpManage.xaml.cs">
+      <DependentUpon>EmpManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\employee\PayManage.xaml.cs">
+      <DependentUpon>PayManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\employee\ViewEmp.xaml.cs">
+      <DependentUpon>ViewEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\loginForm\LoginForm.xaml.cs">
+      <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\money\AccountChecking.xaml.cs">
+      <DependentUpon>AccountChecking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\money\Deposit.xaml.cs">
+      <DependentUpon>Deposit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\money\NewAccount.xaml.cs">
+      <DependentUpon>NewAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\money\OperateRecord.xaml.cs">
+      <DependentUpon>OperateRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\money\Withdraw.xaml.cs">
+      <DependentUpon>Withdraw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\passChange\ChangeAccount.xaml.cs">
+      <DependentUpon>ChangeAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\passChange\ChangeOperate.xaml.cs">
+      <DependentUpon>ChangeOperate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\rateManage\RatePage.xaml.cs">
+      <DependentUpon>RatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\rateManage\SlideRation.xaml.cs">
+      <DependentUpon>SlideRation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\summary\DayQuery.xaml.cs">
+      <DependentUpon>DayQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\summary\TotalQuery.xaml.cs">
+      <DependentUpon>TotalQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\system\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\system\Theme.xaml.cs">
+      <DependentUpon>Theme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -201,6 +261,12 @@
     </Compile>
     <Compile Include="RateInfo.cs">
       <DependentUpon>BankEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Theme.cs" />
+    <Compile Include="ThemeColor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ThemeColor.settings</DependentUpon>
     </Compile>
     <Compile Include="utils\Rate.cs" />
     <Compile Include="view\employee\AddEmp.xaml.cs">
@@ -245,6 +311,12 @@
     <Compile Include="view\passChange\ChangeOperate.xaml.cs">
       <DependentUpon>ChangeOperate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\system\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\system\Theme.xaml.cs">
+      <DependentUpon>Theme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\rateManage\SlideRation.xaml.cs">
       <DependentUpon>SlideRation.xaml</DependentUpon>
     </Compile>
@@ -266,6 +338,9 @@
     <Compile Include="utils\Uuid.cs" />
     <Compile Include="utils\Validate.cs" />
     <Compile Include="utils\Captcha.cs" />
+    <Compile Include="view\system\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vm\employee\AddEmpVm.cs" />
     <Compile Include="vm\employee\ChangeSalaryVm.cs" />
     <Compile Include="vm\employee\EditEmpVm.cs" />
@@ -279,6 +354,7 @@
     <Compile Include="vm\money\DepositVm.cs" />
     <Compile Include="vm\money\WithdrawVm.cs" />
     <Compile Include="vm\money\NewAccountVm.cs" />
+    <Compile Include="vm\MultiBindingConverter.cs" />
     <Compile Include="vm\NotifyProperty.cs" />
     <Compile Include="vm\passChange\ChangeAccountVm.cs" />
     <Compile Include="vm\passChange\ChangeOperateVm.cs" />
@@ -286,6 +362,86 @@
     <Compile Include="vm\RelayCommand.cs" />
     <Compile Include="vm\summary\DayQueryVm.cs" />
     <Compile Include="vm\summary\TotalQueryVm.cs" />
+    <Page Include="help\view\employee\AddEmp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\employee\ChangeSalary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\employee\EditEmp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\employee\EmpManage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\employee\PayManage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\employee\ViewEmp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\loginForm\LoginForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\money\AccountChecking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\money\Deposit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\money\NewAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\money\OperateRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\money\Withdraw.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\passChange\ChangeAccount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\passChange\ChangeOperate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\rateManage\RatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\rateManage\SlideRation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\summary\DayQuery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\summary\TotalQuery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\system\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="help\view\system\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -360,6 +516,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\system\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\system\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\rateManage\SlideRation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -385,6 +549,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="static\style\Share.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\system\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -426,6 +594,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="ThemeColor.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ThemeColor.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -468,6 +640,8 @@
       <DependentUpon>Bank.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="view\system\theme.jpg" />
+    <Resource Include="static\images\public\theme.jpg" />
     <Resource Include="static\images\captcha\4946ac4f22c744f9a313d579289346ee.png" />
     <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
   </ItemGroup>
