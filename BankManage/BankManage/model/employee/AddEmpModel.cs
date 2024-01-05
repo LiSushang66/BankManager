@@ -12,6 +12,7 @@ namespace BankManage.model.employee {
         private string _txtEmployeeId;
         private string _txtEmployeeName;
         private string _password;
+        private string _passwordConfirm;
         private string _txtSex;
         private decimal _txtSalary;
         private string _txtTelphone;
@@ -21,6 +22,7 @@ namespace BankManage.model.employee {
         private string _txtEmployeeIdError;
         private string _txtEmployeeNameError;
         private string _passwordError;
+        private string _passwordConfirmError;
         private string _txtSexError;
         private string _txtSalaryError;
         private string _txtTelphoneError;
@@ -37,6 +39,10 @@ namespace BankManage.model.employee {
         public string password {
             get => _password;
             set => SetProperty(ref _password, value);
+        }
+        public string passwordConfirm {
+            get => _passwordConfirm;
+            set => SetProperty(ref _passwordConfirm, value);
         }
         public string txtSex {
             get => _txtSex;
@@ -74,6 +80,10 @@ namespace BankManage.model.employee {
         public string passwordError {
             get => _passwordError;
             set => SetProperty(ref _passwordError, value);
+        }
+        public string passwordConfirmError {
+            get => _passwordConfirmError;
+            set => SetProperty(ref _passwordConfirmError, value);
         }
         public string txtSexError {
             get => _txtSexError;

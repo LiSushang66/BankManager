@@ -139,6 +139,12 @@ namespace BankManage.vm.employee {
                 isValid = false;
             }
 
+            // 验证确认
+            if (addEmp.passwordConfirm!=addEmp.password) {
+                addEmp.passwordConfirmError = "两次输入不一致";
+                isValid = false;
+            }
+
             // 验证性别
             if (addEmp.txtSex.ToLower() != "男" && addEmp.txtSex.ToLower() != "女") {
                 addEmp.txtSexError = "性别必须填写为“男”或“女”";
