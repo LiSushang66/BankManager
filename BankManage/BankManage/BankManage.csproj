@@ -190,9 +190,6 @@
     <Compile Include="help\view\employee\PayManage.xaml.cs">
       <DependentUpon>PayManage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="help\view\loginForm\LoginForm.xaml.cs">
-      <DependentUpon>LoginForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="help\view\money\Deposit.xaml.cs">
       <DependentUpon>Deposit.xaml</DependentUpon>
     </Compile>
@@ -355,10 +352,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="help\view\employee\PayManage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="help\view\loginForm\LoginForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -614,6 +607,7 @@
     <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="help\view\loginForm\" />
     <Folder Include="static\font\" />
   </ItemGroup>
   <ItemGroup>
