@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="账号:" FontSize="30"  HorizontalAlignment="Center">
+        <Label Grid.Row="0" Content="请确认以下信息是否正确" FontSize="30"  HorizontalAlignment="Center">
         </Label>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -30,37 +30,37 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="账号:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="0" Content="账户" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="0" Grid.Column="1" x:Name="txtAccountNo" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="1" Content="账户名:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="1" Content="账户名:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="1" Grid.Column="1" x:Name="txtAccountName" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="2" Content="身份证号:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="2" Content="身份证号:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="2" Grid.Column="1" x:Name="txtIDCard" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="3" Content="密码:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="3" Content="密码:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="3" Grid.Column="1" x:Name="txtPass" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="4" Content="开户类型:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="4" Content="开户类型:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="4" Grid.Column="1" x:Name="accountType" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="5" Content="开户金额:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="5" Content="开户金额:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="5" Grid.Column="1" x:Name="txtMoney" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>
 
-            <Label Grid.Row="6" Content="利率:" FontSize="25" HorizontalAlignment="Right">
+            <Label Grid.Row="6" Content="利率:" FontSize="25" HorizontalAlignment="Left">
             </Label>
             <Label Grid.Row="6" Grid.Column="1" x:Name="rateType" Content="" FontSize="25" HorizontalAlignment="Left">
             </Label>

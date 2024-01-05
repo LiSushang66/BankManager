@@ -14,7 +14,7 @@ namespace BankManage.utils {
             TimeSpan daysSpan = new TimeSpan(DateTime.Now.Ticks - Finance.dealDate.Ticks);
             bool leap_year = false;
             RateType rate;
-
+            double days = daysSpan.TotalDays;
             if (User.rateType == "定期1年") {
                 int year = Finance.dealDate.Year;
                 //
@@ -22,13 +22,13 @@ namespace BankManage.utils {
 
                 //
                 if (leap_year) {
-                    if (daysSpan.TotalDays >= 366) {
+                    if (daysSpan.TotalDays >= 366.0) {
                         rate = RateType.定期1年;
                     } else {
                         rate = RateType.定期提前支取;
                     }
                 } else {
-                    if (daysSpan.TotalDays >= 365) {
+                    if (daysSpan.TotalDays >= 365.0) {
                         rate = RateType.定期1年;
                     } else {
                         rate = RateType.定期提前支取;
@@ -39,13 +39,13 @@ namespace BankManage.utils {
                     leap_year = IsLeap(year, leap_year);
                 }
                 if (leap_year) {
-                    if (daysSpan.TotalDays >= 1096) {
+                    if (daysSpan.TotalDays >= 1096.0) {
                         rate = RateType.定期3年;
                     } else {
                         rate = RateType.定期提前支取;
                     }
                 } else {
-                    if (daysSpan.TotalDays >= 1095) {
+                    if (daysSpan.TotalDays >= 1095.0) {
                         rate = RateType.定期3年;
                     } else {
                         rate = RateType.定期提前支取;
@@ -55,13 +55,13 @@ namespace BankManage.utils {
             } else if (User.rateType == "定期5年") {
                 int leap_year_num = LeapYearNum(Finance, ref leap_year);
                 if (leap_year) {
-                    if (daysSpan.TotalDays >= 366 * leap_year_num + 365 * (5 - leap_year_num)) {
+                    if (daysSpan.TotalDays >= 366.0 * leap_year_num + 365 * (5 - leap_year_num)) {
                         rate = RateType.定期5年;
                     } else {
                         rate = RateType.定期提前支取;
                     }
                 } else {
-                    if (daysSpan.TotalDays >= 1825) {
+                    if (daysSpan.TotalDays >= 1825.0) {
                         rate = RateType.定期5年;
                     } else {
                         rate = RateType.定期提前支取;

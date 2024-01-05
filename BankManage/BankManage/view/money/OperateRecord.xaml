@@ -9,23 +9,72 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
 	  Title="OperateRecord">
+    
 
     <Grid>
-        <StackPanel>
-            <DataGrid Grid.Row="0" ItemsSource="{Binding datagrid1}" AutoGenerateColumns="False" Background="#FFDDFBF9"  CanUserAddRows="False" CanUserDeleteRows="False">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="处理时间" Width="150"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" 
+                  ItemsSource="{Binding datagrid1}" 
+                  AutoGenerateColumns="False" 
+                  HorizontalAlignment="Center"
+                  HeadersVisibility="All"
+                  Background="WhiteSmoke"  
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="处理时间" Width="250"
                         SortMemberPath="BirthDate"
-                        CellTemplate="{StaticResource DealDateTemplate}" />
-                    <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="60" />
-                    <DataGridTextColumn Header="处理类型" Binding="{Binding dealType}" Width="80"/>
-                    <DataGridTextColumn Header="处理金额" Binding="{Binding dealMoney}" Width="80"/>
-                    <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <TextBlock x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic"></TextBlock>
-        </StackPanel>
-        <controls:PagerBar x:Name="pagerBar"  Grid.Row="1" Margin="5"
+                        CellTemplate="{StaticResource DealDateTemplate}" >
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="账号" Binding="{Binding accountNo}" Width="120" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="处理类型" Binding="{Binding dealType}" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="处理金额" Binding="{Binding dealMoney}" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="账户余额" Binding="{Binding balance}" Width="Auto" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
+        <TextBlock Grid.Row="1" x:Name="textTotal" Text="" Foreground="Red" FontSize="10" FontStyle="Italic"></TextBlock>
+        <controls:PagerBar Grid.Row="2" x:Name="pagerBar"  Margin="5"
            HorizontalAlignment="Center"
            PageSize="{Binding Path=Pager.PageSize, Mode=TwoWay}"
            PageCount="{Binding Path=Pager.PageCount, Mode=TwoWay}"

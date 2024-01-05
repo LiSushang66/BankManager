@@ -65,15 +65,19 @@ namespace BankManage.domain {
                     rate = DataOperation.GetRate(type) * AccountBalance * 5;
                     rate += DataOperation.GetRate(RateType.定期超期部分) * (Rate.Span(deal).TotalDays - (Rate.LeapYearNum(deal) * 366 + (5 - Rate.LeapYearNum(deal) * 365)) / 365);
                 }
-            } else if (type == RateType.定期提前支取) {
+            }
+            else if (type == RateType.定期提前支取) {
                 MessageBoxButton button = MessageBoxButton.YesNo;
                 result = MessageBox.Show("期限未到提前支取", "提前支取", button);
                 TimeSpan Cur = Rate.Span(deal);
                 rate = DataOperation.GetRate(RateType.定期提前支取) * AccountBalance * (Cur.TotalDays / 365);
 
-            } else {
+            } 
+            else {
                 MessageBox.Show("账号利率类别异常");
+                return;
             }
+
             if (result == MessageBoxResult.Yes) {
                 //添加利息
                 base.Diposit("结息", rate);

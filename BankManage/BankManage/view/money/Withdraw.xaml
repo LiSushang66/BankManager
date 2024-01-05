@@ -8,28 +8,37 @@
 	Title="Withdraw">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="7*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="取款" FontSize="20" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" ></TextBlock>
-            <TextBlock Margin="7"  Grid.Row="1">账号：</TextBlock>
-            <TextBox Name="txtAccount" Margin="5" Grid.Column="1"  Grid.Row="1"></TextBox>
-            <TextBlock Margin="7"  Grid.Row="2">密码：</TextBlock>
-            <PasswordBox Name="txtPassword" Margin="5" Grid.Column="1"  Grid.Row="2"></PasswordBox>
-            <TextBlock Margin="7"  Grid.Row="3">取款金额：</TextBlock>
-            <TextBox Name="txtmount" Margin="5" Grid.Column="1"  Grid.Row="3"></TextBox>
+            <TextBlock Text="取款" FontSize="25" TextAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2" ></TextBlock>
+
+            <TextBlock Margin="25" FontSize="20" TextAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">账号：</TextBlock>
+            <TextBox Name="txtAccount" Margin="25,50,25.333,25" Grid.Column="1"  Grid.Row="1"></TextBox>
+
+            <TextBlock Margin="25" FontSize="20" TextAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2">密码：</TextBlock>
+            <PasswordBox Name="txtPassword" Margin="25,50,25.333,25" Grid.Column="1"  Grid.Row="2"></PasswordBox>
+
+            <TextBlock Margin="25" FontSize="20" TextAlignment="Right" VerticalAlignment="Bottom" Grid.Row="3">取款金额：</TextBlock>
+            <TextBox Name="txtmount" Margin="25,50,25.333,25" Grid.Column="1"  Grid.Row="3" ></TextBox>
+            
             <StackPanel Grid.Row="4" HorizontalAlignment="Center" Grid.ColumnSpan="2" Orientation="Horizontal" >
                 <Button Name="btnOk"  Width="50" Margin="10,10,2,10" Padding="3" Click="btnOk_Click">确定</Button>
                 <Button Name="btnCancel"  Width="50" Margin="2,10,10,10" Padding="3" Click="btnCancel_Click">取消</Button>

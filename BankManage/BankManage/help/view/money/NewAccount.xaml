@@ -9,17 +9,17 @@
     <Grid>
         <ScrollViewer >
             <StackPanel>
-                <StackPanel Height="203" VerticalAlignment="Top">
-
-                </StackPanel>
                 <StackPanel Margin="20">
-                    <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">啦啦啦存款查询服务帮助</Label>
+                    <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">开户服务帮助</Label>
                     <TextBlock FontSize="18"  xml:space="preserve" TextWrapping="Wrap">       欢迎使用狗熊岭银行管理系统，您可以随时点击左上角的选单打开帮助。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，可通过身份证号码、账户或姓名，单击“查询”，查询匹配的存款余额。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       。</TextBlock>
+                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，可通过输入身份证号码、账户名、开户金额并选择相应开户类型以及利率类型来进行开户服务</TextBlock>
+                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       系统会为您自动匹配相应的账户, 系统会验证您的输入并给与反馈</TextBlock>
+                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       若复制密码和身份证号可能导致验证事件没有触发,导致开户验证失败,您可以通过增删一位身份证字符来触发验证</TextBlock>
                     <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果找不到您的问题或答案，请向我们反馈。</TextBlock>
                     <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap" HorizontalAlignment="Right">
                         狗熊岭银行管理系统开发团队</TextBlock>
+                    <Label HorizontalAlignment="Right" FontSize="24" >如有问题请咨询本服务热心负责员工:</Label>
+                    <Image Height="350" Width="220" HorizontalAlignment="Right" Source="..\..\..\static\images\public\EmployeeBear2.jpeg"></Image>
                 </StackPanel>
             </StackPanel>
 
