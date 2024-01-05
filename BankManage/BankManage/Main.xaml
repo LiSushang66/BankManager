@@ -184,6 +184,21 @@
                                                 </MultiBinding>
                                             </Button.CommandParameter>
                                         </Button>
+                                        <Button  Tag="view/money/OperateRecord.xaml" 
+                                                 Command="{Binding Button_Click}"
+                                                 Style="{StaticResource MaterialDesignRaisedButton}"
+                                                 materialDesign:ButtonAssist.CornerRadius="16"
+                                                 ToolTip="查看操作记录"
+                                                 Content="操作记录" Margin="10,3" >
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                                                    <Binding RelativeSource="{x:Static RelativeSource.Self}"/>
+                                                    <Binding ElementName="tabSwitch"/>
+                                                    <Binding ElementName="DrawerHost"/>
+                                                    <Binding ElementName="helperFrame"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
                                     </StackPanel>
                                 </Expander>
                                 <Expander Header="汇总查询">

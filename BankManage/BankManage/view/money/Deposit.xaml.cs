@@ -4,6 +4,7 @@ using System.Windows.Navigation;
 using BankManage.vm.money;
 using BankManage.model;
 using BankManage.domain;
+using BankManage.utils;
 
 namespace BankManage.view.money
 {
@@ -21,7 +22,7 @@ namespace BankManage.view.money
                 MessageBox.Show("帐号不存在！");
                 return;
             }
-            if (custom.AccountInfo.accountPass != this.txtPassword.Password) {
+            if (custom.AccountInfo.accountPass != Encrypt.SHA256Encrypt(this.txtPassword.Password)) {
                 MessageBox.Show("密码不正确");
                 return;
             }
