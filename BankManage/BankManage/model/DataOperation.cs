@@ -75,6 +75,7 @@ namespace BankManage.model
                     custom.AccountInfo.accountName = q.accountName;
                     custom.AccountInfo.accountPass = q.accountPass;
                     custom.AccountInfo.IdCard = q.IdCard;
+                    custom.AccountInfo.rateType = q.rateType;
                 }
             }
             catch

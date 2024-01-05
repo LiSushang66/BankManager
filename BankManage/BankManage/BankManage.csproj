@@ -626,7 +626,7 @@
       <DependentUpon>Bank.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
+    <Resource Include="static\images\public\EmployeeBear2.jpeg" />
     <Resource Include="view\system\theme.jpg" />
     <Resource Include="static\images\public\theme.jpg" />
     <Resource Include="static\images\captcha\4946ac4f22c744f9a313d579289346ee.png" />
