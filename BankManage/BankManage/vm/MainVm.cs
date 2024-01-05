@@ -81,12 +81,12 @@ namespace BankManage.vm {
             tS.IsChecked = dH.IsLeftDrawerOpen;
         }
 
-        private void ExecuteMainWindow_Loaded(object sender, EventArgs e) {
-            //默认显示当前页面
-            main.uri = new Uri("view/money/OperateRecord.xaml", UriKind.Relative);
-            //启动登陆窗体
-            //LoginForm login = new LoginForm();
-            //login.ShowDialog();
+
+        public ICommand Button_Click_Help { get; set; }
+        private void ExecuteButton_Click_Help(object obj) {
+            var controlArray = (object[])obj;
+            DrawerHost b = (DrawerHost)controlArray[0];
+            b.IsRightDrawerOpen = true;
         }
 
 
