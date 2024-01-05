@@ -11,6 +11,9 @@ namespace BankManage.utils {
 
         //判断密码是否包含大小写数字特殊字符，且大于8位小于32位
         public static bool Password(string password) {
+            if (password == null) {
+                return false;
+            }
             string PASSWORD_STRENGTH = @"(?=(.*[a-z]))(?=(.*[A-Z]))(?=(.*\d))(?=(.*[ !""#$%&'()*+,-./:;<=>?@\[\]\^_`{|}~]))^.{8,32}$";
             return Regex.IsMatch(password, PASSWORD_STRENGTH);
         }

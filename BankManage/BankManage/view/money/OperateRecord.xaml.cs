@@ -43,6 +43,7 @@ namespace BankManage.view.money
 
             //分页初始化
             if (datagrid1.Count() > 0) {
+                pagerBar.Visibility = Visibility.Visible;
                 Pager = new Pager<MoneyInfo>(8, datagrid1);
                 Pager.PagerUpdated += items => {
                     datagrid1 = new ObservableCollection<MoneyInfo>(items);

@@ -63,7 +63,7 @@
                      materialDesign:TextFieldAssist.UnderlineBrush="MediumPurple"
                      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                      cntl:PasswordBoxHelper.Password="{Binding addEmp.passwordConfirm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                       HorizontalAlignment="Left" VerticalAlignment="Top" Width="150">
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Width="150">
             <b:Interaction.Behaviors>
                 <cntl:PasswordBoxBehavior/>
             </b:Interaction.Behaviors>
