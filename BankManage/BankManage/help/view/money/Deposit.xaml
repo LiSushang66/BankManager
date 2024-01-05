@@ -19,10 +19,10 @@
             <ScrollViewer >
                 <StackPanel>
                     <StackPanel Margin="20">
-                        <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">存款查询服务帮助</Label>
+                        <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">存款服务帮助</Label>
                         <TextBlock FontSize="18"  xml:space="preserve" TextWrapping="Wrap">       欢迎使用狗熊岭银行管理系统，您可以随时点击左上角的选单打开帮助。</TextBlock>
-                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，账户,密码, 并填写相关钱数，单击“取款”，来完成取款服务。</TextBlock>
-                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果是定期/零存整取账户/则根据存款时间给出相应提示</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，账户,密码, 并填写相关钱数，单击“确认”，来完成存款服务。</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果是定期/零存整取账户/则根据存款时间/业务机制给出相应提示</TextBlock>
                         <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果找不到您的问题或答案，请向我们反馈。</TextBlock>
                         <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap" HorizontalAlignment="Right">
                         狗熊岭银行管理系统开发团队</TextBlock>
