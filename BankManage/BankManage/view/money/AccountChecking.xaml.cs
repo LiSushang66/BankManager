@@ -56,7 +56,7 @@ namespace BankManage.view.money {
 
         //取消
         private void Button_Click_1(object sender, RoutedEventArgs e) {
-            NavigationService.GoBack();
+           this. NavigationService.Navigate(new NewAccount());
         }
     }
 }
