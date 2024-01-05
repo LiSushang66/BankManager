@@ -32,7 +32,7 @@ namespace BankManage.vm.employee {
 
 
         public BitmapImage image {
-            get => FileUtils.ByteToImage(addEmp.imgPhoto);
+            get => addEmp.imgPhoto == null ? new BitmapImage(new Uri(@"..\..\static\images\profilePhoto\defaultPhoto.jpg", UriKind.Relative)) : FileUtils.ByteToImage(addEmp.imgPhoto);
             set {
                 addEmp.imgPhoto = FileUtils.ImageToByte(value);
                 OnPropertyChanged();
@@ -61,6 +61,7 @@ namespace BankManage.vm.employee {
             addEmp.txtEmployeeIdError=string.Empty;
             addEmp.txtEmployeeNameError = string.Empty;
             addEmp.passwordError = string.Empty;
+            addEmp.passwordConfirmError = string.Empty;
             addEmp.txtSexError = string.Empty;
             addEmp.txtSalaryError = string.Empty;
             addEmp.txtTelphoneError = string.Empty;
@@ -70,6 +71,7 @@ namespace BankManage.vm.employee {
             if (string.IsNullOrWhiteSpace(addEmp.txtEmployeeId)
                 || string.IsNullOrWhiteSpace(addEmp.txtEmployeeName)
                 || string.IsNullOrWhiteSpace(addEmp.password)
+                || string.IsNullOrWhiteSpace(addEmp.passwordConfirm)
                 || string.IsNullOrWhiteSpace(addEmp.txtSex)
                 || string.IsNullOrWhiteSpace(salary.ToString())
                 || string.IsNullOrWhiteSpace(addEmp.txtTelphone)
@@ -80,9 +82,6 @@ namespace BankManage.vm.employee {
 
             // 验证用户输入
             if (ValidateInput()) {
-                if (addEmp.imgPhoto == null) {
-                    addEmp.imgPhoto = FileUtils.ImageToByte(new BitmapImage(new Uri(@"..\..\static\images\profilePhoto\defaultPhoto.jpg", UriKind.Relative)));
-                }
 
                 // 将 newEmployee 插入到数据库中
                 if (_empMapper.InsertEmp(addEmp.txtEmployeeId,addEmp.txtEmployeeName, addEmp.password, addEmp.txtSex, addEmp.txtSalary, addEmp.txtTelphone, addEmp.txtIdCard, addEmp.imgPhoto)) {
@@ -121,7 +120,7 @@ namespace BankManage.vm.employee {
                 addEmp.txtEmployeeIdError = "员工编号已存在";
                 isValid = false;
             }else if(!(addEmp.txtEmployeeId.Length == 5 && int.TryParse(addEmp.txtEmployeeId, out _))) {
-                addEmp.txtEmployeeIdError = "名字长度必须是5且是数字";
+                addEmp.txtEmployeeIdError = "编号长度必须是5且是数字";
                 isValid = false;
             }
 

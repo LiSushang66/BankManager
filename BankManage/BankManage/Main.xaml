@@ -14,7 +14,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        Title="Main" Height="700" Width="900" WindowStartupLocation="CenterScreen" >
+        Title="Main" Height="700" Width="1080" WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <vm:MultiBindingConverter x:Key="MultiBindingConverter" />
     </Window.Resources>
@@ -273,7 +273,7 @@
                                 </Expander>
                                 <Expander Header="更改密码">
                                     <StackPanel>
-                                        <Button Height="50" Width="90" Tag="view/passChange/ChangeAccount.xaml" 
+                                        <Button Tag="view/passChange/ChangeAccount.xaml" 
                                                 Command="{Binding Button_Click}"
                                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                                 materialDesign:ButtonAssist.CornerRadius="16"
@@ -288,7 +288,7 @@
                                                 </MultiBinding>
                                             </Button.CommandParameter>
                                         </Button>
-                                        <Button x:Name="R" Height="50" Width="90" Tag="view/passChange/ChangeOperate.xaml"
+                                        <Button Tag="view/passChange/ChangeOperate.xaml"
                                                 Command="{Binding Button_Click}"
                                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                                 materialDesign:ButtonAssist.CornerRadius="16"

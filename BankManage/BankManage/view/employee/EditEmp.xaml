@@ -9,7 +9,7 @@
       xmlns:cntl="clr-namespace:BankManage.component.password"
       xmlns:vm="clr-namespace:BankManage.vm.employee"
       d:DataContext="{d:DesignInstance vm:EditEmpVm}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="EditEmp">
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
@@ -18,36 +18,57 @@
     </b:Interaction.Triggers>
 
     <Grid Background="White">
-        <Label Content="编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
-        <TextBox Text="{Binding editEmp.txtEmployeeNo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtEmployeeNoError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,40,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="编号:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding editEmp.txtEmployeeNo}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding editEmp.txtEmployeeNoError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <Label Content="名字:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
-        <TextBox Text="{Binding editEmp.txtEmployeeName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,80,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtEmployeeNameError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,80,0,0"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="名字:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding editEmp.txtEmployeeName}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding editEmp.txtEmployeeNameError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <Label Content="性别:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0"/>
-        <TextBox Text="{Binding editEmp.txtSex}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,120,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtSexError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,120,0,0"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="性别:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding editEmp.txtSex}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding editEmp.txtSexError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
-        <Label Content="薪水:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <TextBox Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,160,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,160,0,0"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="薪水:" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="150"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding editEmp.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <Label Content="电话:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
-        <TextBox Text="{Binding editEmp.txtTelphone}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,200,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtTelphoneError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,200,0,0"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="电话:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding editEmp.txtTelphone}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding editEmp.txtTelphoneError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <Label Content="身份证号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,240,0,0"/>
-        <TextBox Text="{Binding editEmp.txtIdCard}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,240,0,0" Width="150"/>
-        <TextBlock Text="{Binding editEmp.txtIdCardError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,240,0,0"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="身份证号:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding editEmp.txtIdCard}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding editEmp.txtIdCardError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
 
-        <Label Content="照片:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,280,0,0"/>
-        <Image Source="{Binding image}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,280,0,0" Width="150" Height="150"/>
-        <Button Content="选择照片" Width="80" Margin="240,280,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding SelectPhotoButton_Click}"/>
-
-        <Button Content="保存" Width="75" Margin="10,320,10,0" HorizontalAlignment="Right" VerticalAlignment="Top"  Command="{Binding SaveButton_Click}"/>
-        <Button Content="取消" Width="75" Margin="10,320,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"  Command="{Binding CancelButton_Click}"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="头像:" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Button
+                        Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                        ToolTip="选择头像" Width="180" Height="180" Command="{Binding SelectPhotoButton_Click}">
+            <Image  Source="{Binding image}" Width="180" Height="180" />
+        </Button>
+        
+        
+        <Button Grid.Row="6" Grid.Column="0" Content="保存" Width="75" HorizontalAlignment="Right" VerticalAlignment="Center"  Command="{Binding SaveButton_Click}"/>
+        <Button Grid.Row="6" Grid.Column="2" Content="取消" Width="75" HorizontalAlignment="Left" VerticalAlignment="Center"  Command="{Binding CancelButton_Click}"/>
     </Grid>
 </Page>
 

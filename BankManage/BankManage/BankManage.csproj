@@ -190,6 +190,9 @@
     <Compile Include="help\view\employee\PayManage.xaml.cs">
       <DependentUpon>PayManage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="help\view\help\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
     <Compile Include="help\view\money\Deposit.xaml.cs">
       <DependentUpon>Deposit.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,9 @@
     </Compile>
     <Compile Include="help\view\system\Theme.xaml.cs">
       <DependentUpon>Theme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="help\view\system\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
@@ -268,6 +274,9 @@
     </Compile>
     <Compile Include="view\employee\ViewEmp.xaml.cs">
       <DependentUpon>ViewEmp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\help\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\loginForm\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
@@ -355,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="help\view\help\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="help\view\money\Deposit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -403,6 +416,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="help\view\system\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -442,8 +459,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\help\Help.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\loginForm\LoginForm.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -601,10 +618,10 @@
       <DependentUpon>Bank.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
     <Resource Include="view\system\theme.jpg" />
     <Resource Include="static\images\public\theme.jpg" />
     <Resource Include="static\images\captcha\4946ac4f22c744f9a313d579289346ee.png" />
-    <Resource Include="static\images\profilePhoto\defaultPhoto.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="help\view\loginForm\" />

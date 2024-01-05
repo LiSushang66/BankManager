@@ -4,62 +4,111 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       xmlns:cntl="clr-namespace:BankManage.component.password"
       xmlns:vm="clr-namespace:BankManage.vm.employee"
       d:DataContext="{d:DesignInstance vm:AddEmpVm}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="AddEmp">
 
     <Grid Background="White">
-        <Label Content="编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox Text="{Binding addEmp.txtEmployeeId}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtEmployeeIdError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,0,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="编号:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox  Grid.Row="0" Grid.Column="1" 
+                  materialDesign:HintAssist.Hint="编号"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                  Text="{Binding addEmp.txtEmployeeId}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding addEmp.txtEmployeeIdError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="名字:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
-        <TextBox Text="{Binding addEmp.txtEmployeeName}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtEmployeeNameError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,40,0,0"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="名字:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 materialDesign:HintAssist.Hint="名字"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding addEmp.txtEmployeeName}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding addEmp.txtEmployeeNameError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="密码:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
-        <PasswordBox  cntl:PasswordBoxHelper.Password="{Binding addEmp.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,80,0,0" Width="150">
-        <b:Interaction.Behaviors>
-            <cntl:PasswordBoxBehavior/>
-        </b:Interaction.Behaviors>
-        </PasswordBox>
-        <TextBlock Text="{Binding addEmp.passwordError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,80,0,0"/>
-
-        <Label Content="确认密码:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0"/>
-        <PasswordBox  cntl:PasswordBoxHelper.Password="{Binding addEmp.passwordConfirm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,120,0,0" Width="150">
+        <Label Grid.Row="2" Grid.Column="0" Content="密码:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1" 
+                     materialDesign:HintAssist.Hint="密码"
+                     materialDesign:TextFieldAssist.UnderlineBrush="MediumPurple"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                     cntl:PasswordBoxHelper.Password="{Binding addEmp.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Left" VerticalAlignment="Top"  Width="150">
             <b:Interaction.Behaviors>
                 <cntl:PasswordBoxBehavior/>
             </b:Interaction.Behaviors>
         </PasswordBox>
-        <TextBlock Text="{Binding addEmp.passwordConfirmError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,120,0,0"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding addEmp.passwordError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="确认密码:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <PasswordBox Grid.Row="3" Grid.Column="1"
+                     materialDesign:HintAssist.Hint="确认密码"
+                     materialDesign:TextFieldAssist.UnderlineBrush="MediumPurple"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                     cntl:PasswordBoxHelper.Password="{Binding addEmp.passwordConfirm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" Width="150">
+            <b:Interaction.Behaviors>
+                <cntl:PasswordBoxBehavior/>
+            </b:Interaction.Behaviors>
+        </PasswordBox>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding addEmp.passwordConfirmError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
 
-        <Label Content="性别:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <TextBox Text="{Binding addEmp.txtSex}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,160,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtSexError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,160,0,0"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="性别:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1"  
+                 materialDesign:HintAssist.Hint="性别"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding addEmp.txtSex}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding addEmp.txtSexError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="工资:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
-        <TextBox Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,200,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,200,0,0"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="工资:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="1"  
+                 materialDesign:HintAssist.Hint="工资"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding addEmp.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="电话:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,240,0,0"/>
-        <TextBox Text="{Binding addEmp.txtTelphone}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,240,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtTelphoneError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,240,0,0"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="电话:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="6" Grid.Column="1"  
+                 materialDesign:HintAssist.Hint="电话"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                  Text="{Binding addEmp.txtTelphone}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding addEmp.txtTelphoneError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="身份证号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,280,0,0"/>
-        <TextBox Text="{Binding addEmp.txtIdCard}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,280,0,0" Width="150"/>
-        <TextBlock Text="{Binding addEmp.txtIdCardError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,280,0,0"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="身份证号:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="7" Grid.Column="1"  
+                 materialDesign:HintAssist.Hint="身份证号"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Text="{Binding addEmp.txtIdCard}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding addEmp.txtIdCardError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150"/>
 
-        <Label Content="照片:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,320,0,0"/>
-        <Image Source="{Binding image}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,320,0,0" Width="150" Height="150"/>
-        <Button Content="选择照片" Width="80" Margin="240,320,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding SelectPhotoButton_Click}"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="头像:" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Button
+                        Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                        ToolTip="选择头像" Width="180" Height="180" Command="{Binding SelectPhotoButton_Click}">
+            <Image  Source="{Binding image}" Width="180" Height="180" />
+        </Button>
 
-        <Button Content="确定" Width="75" Margin="10,320,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding ConfirmButton_Click}"/>
-        <Button Content="取消" Width="75" Margin="10,320,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding CancelButton_Click}"/>
+        <Button Grid.Row="8" Grid.Column="0" Content="确定" Width="75" HorizontalAlignment="Right" VerticalAlignment="Center" Command="{Binding ConfirmButton_Click}"/>
+        <Button Grid.Row="8" Grid.Column="2" Content="取消" Width="75" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding CancelButton_Click}"/>
     </Grid>
 </Page>

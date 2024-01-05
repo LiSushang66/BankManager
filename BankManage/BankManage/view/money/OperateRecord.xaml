@@ -7,7 +7,7 @@
       xmlns:c="clr-namespace:BankManage.view.money" 
       d:DataContext="{d:DesignInstance Type=c:OperateRecord}"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"  
+      d:DesignHeight="600" d:DesignWidth="800"
 	  Title="OperateRecord">
 
     <Grid>

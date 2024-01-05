@@ -7,7 +7,7 @@
       xmlns:v="clr-namespace:BankManage.vm.money.Validation"
       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="300" Title="NewAccount">
+      d:DesignHeight="600" d:DesignWidth="800" Title="NewAccount">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

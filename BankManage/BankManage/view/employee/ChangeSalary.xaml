@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:BankManage.vm.employee"
         d:DataContext="{d:DesignInstance vm:ChangeSalaryVm}"
-        d:DesignHeight="450" d:DesignWidth="800"
+        d:DesignHeight="600" d:DesignWidth="800"
         Title="ChangeSalary">
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
@@ -16,29 +16,44 @@
     </b:Interaction.Triggers>
 
     <Grid Background="White">
-        <Label Content="编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
-        <TextBox Text="{Binding curEmployee.EmployeeNo}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" Width="150"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.9*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="编号:" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding curEmployee.EmployeeNo}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="名字:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
-        <TextBox Text="{Binding curEmployee.EmployeeName}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" Width="150"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="名字:" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding curEmployee.EmployeeName}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="性别:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
-        <TextBox Text="{Binding curEmployee.sex}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,80,0,0" Width="150"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="性别:" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding curEmployee.sex}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="入职日期:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0"/>
-        <DatePicker SelectedDate="{Binding curEmployee.workDate}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,120,0,0" Width="150"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="入职日期:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <DatePicker Grid.Row="3" Grid.Column="1"  SelectedDate="{Binding curEmployee.workDate}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="薪水:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <TextBox Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,160,0,0" Width="150"/>
-        <TextBlock Text="{Binding changeSalary.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,160,0,0"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="薪水:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding salary}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding changeSalary.txtSalaryError}" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <Label Content="电话:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
-        <TextBox Text="{Binding curEmployee.telphone}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,200,0,0" Width="150"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="电话:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding curEmployee.telphone}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="身份证号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,240,0,0"/>
-        <TextBox Text="{Binding curEmployee.idCard}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,240,0,0" Width="150"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="身份证号:" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding curEmployee.idCard}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Button Content="保存" Width="75" Margin="10,320,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding SaveButton_Click}"/>
-        <Button Content="取消" Width="75" Margin="10,320,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding CancelButton_Click}"/>
+        <Button Grid.Row="7" Grid.Column="0" Content="保存" Width="75" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding SaveButton_Click}"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="取消" Width="75" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding CancelButton_Click}"/>
     </Grid>
 </Page>

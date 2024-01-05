@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       xmlns:vm="clr-namespace:BankManage.vm.employee"
       d:DataContext="{d:DesignInstance vm:ViewEmpVm}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="ViewEmp">
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
@@ -15,31 +15,55 @@
         </b:EventTrigger>
     </b:Interaction.Triggers>
     <Grid Background="White">
-        <Label Content="编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
-        <TextBox Text="{Binding curEmp.EmployeeNo}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" Width="150"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="1" Grid.Column="0" Content="编号:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding curEmp.EmployeeNo}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="名字:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
-        <TextBox Text="{Binding curEmp.EmployeeName}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" Width="150"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="名字:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding curEmp.EmployeeName}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="性别:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,80,0,0"/>
-        <TextBox Text="{Binding curEmp.sex}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,80,0,0" Width="150"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="性别:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding curEmp.sex}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="入职日期:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0"/>
-        <DatePicker Text="{Binding curEmp.workDate}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,120,0,0" Width="150"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="入职日期:" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <DatePicker Grid.Row="4" Grid.Column="1" Text="{Binding curEmp.workDate}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="薪水:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
-        <TextBox Text="{Binding curEmp.Salary}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,160,0,0" Width="150"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="薪水:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding curEmp.Salary}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="电话:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
-        <TextBox Text="{Binding curEmp.telphone}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,200,0,0" Width="150"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="电话:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding curEmp.telphone}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="身份证号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,240,0,0"/>
-        <TextBox Text="{Binding curEmp.idCard}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,240,0,0" Width="150"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="身份证号:" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding curEmp.idCard}" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
 
-        <Label Content="照片:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,280,0,0"/>
-        <Image Source="{Binding image}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,280,0,0" Width="150" Height="150"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="头像:" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Button
+                        Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                        ToolTip="选择头像" Width="180" Height="180">
+            <Image  Source="{Binding image}" Width="180" Height="180" />
+        </Button>
 
-        <Button Content="关闭" Width="75" Margin="10,320,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding CloseButton_Click}"/>
+        
+        <Button Grid.Row="6" Grid.Column="2" Content="关闭" Width="75" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding CloseButton_Click}"/>
     </Grid>
 </Page>
 
