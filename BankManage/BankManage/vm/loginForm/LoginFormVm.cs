@@ -11,7 +11,8 @@ using BankManage.dao.impl;
 
 namespace BankManage.vm.loginForm {
     internal class LoginFormVm : NotifyProperty {
-        public string UserName { get; set; }
+        public static string UserName { get; set; }
+        public static string Id { get; set; }
         private Window _curWindow;
         private EmpMapper _empMapper = new EmpMapperImpl();
 
@@ -37,6 +38,7 @@ namespace BankManage.vm.loginForm {
                 var query = _empMapper.GetEmp(loginForm.txtCombox, Encrypt.SHA256Encrypt(loginForm.password));
                 if (query.Count() > 0) {
                     var q = query.First();
+                    Id = _empMapper.GetEmp(q.EmployeeNo).First().EmployeeNo;
                     UserName = _empMapper.GetEmp(q.EmployeeNo).First().EmployeeName;
                     LogHelper.Loginfo.Info(UserName + "登录成功");
                     _curWindow.Close();
@@ -58,7 +60,7 @@ namespace BankManage.vm.loginForm {
         //窗体关闭时进行关闭操作
         public ICommand Window_Closing { get; set; }
         private void ExecuteWindow_Closing(object sender) {
-            if (string.IsNullOrEmpty(this.UserName) == true) {
+            if (string.IsNullOrEmpty(UserName) == true) {
                 LogHelper.Loginfo.Info("程序关闭");
                 Application.Current.Shutdown();
             }

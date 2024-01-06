@@ -78,9 +78,10 @@
                                 </MultiBinding>
                             </ToggleButton.CommandParameter>
                         </ToggleButton>
+                        <Image Margin="20,0,0,0" Height="30" Width="30" Source="static/images/public/logo.png"/>
                         <TextBlock
                             VerticalAlignment="Center"
-                            Margin="16 0 0 0"
+                            Margin="10 0 0 0"
                             Text="狗熊岭银行管理系统" />
                     </StackPanel>
                 </DockPanel>
@@ -104,37 +105,34 @@
                 </b:EventTrigger>
             </b:Interaction.Triggers>
 
-            <materialDesign:DrawerHost.Style>
-                <Style
-                      TargetType="materialDesign:DrawerHost"
-                      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
-                    <Style.Triggers>
-                        <DataTrigger
-                              Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
-                              Value="True">
-                            <Setter
-                                Property="OverlayBackground"
-                                Value="{DynamicResource PrimaryHueMidBrush}" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </materialDesign:DrawerHost.Style>
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition />
+                        <RowDefinition Height="1.5*"/>
                         <RowDefinition Height="9*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Orientation="Horizontal" Height="40" Margin="16,1,16,16" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-                        <materialDesign:PackIcon Kind="AccountCircle" VerticalAlignment="Center" Width="32" Height="32" />
-                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0">Administrator</Label>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Height="40" Margin="16,1,16,16" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+
+                        <Button
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                        ToolTip="选择头像" Width="32" Height="32">
+                            <Image  Source="{Binding image}" Width="32" Height="32" />
+                        </Button>
+
+
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding main.employeeName}"/>
                         <materialDesign:PackIcon Kind="WeatherNight" Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="107,0,0,0" />
                         <ToggleButton Command="{Binding ToggleButton_Click_1}"
                                       CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
                                       Style="{StaticResource MaterialDesignSwitchToggleButton}"
                                       ToolTip="夜间模式开关"/>
                     </StackPanel>
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" Height="550" Margin="0,5,0,0" DockPanel.Dock="Top" Grid.Row="1">
+                    <Image Source="static\images\public\themeBar.png" Grid.Row="1" Height="100" VerticalAlignment="Center" Width="337"/>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalAlignment="Top" Height="450" DockPanel.Dock="Top" Grid.Row="2">
                         <StackPanel>
                             <StackPanel  Margin="16">
                                 <Expander Header="存款取款" ExpandDirection="Down">
@@ -378,23 +376,8 @@
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
 
-                <materialDesign:DrawerHost.Style>
-                    <Style
-                      TargetType="materialDesign:DrawerHost"
-                      BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}">
-                        <Style.Triggers>
-                            <DataTrigger
-                              Binding="{Binding IsChecked, ElementName=BackgroundToggle}"
-                              Value="True">
-                                <Setter
-                                Property="OverlayBackground"
-                                Value="{DynamicResource PrimaryHueMidBrush}" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </materialDesign:DrawerHost.Style>
                 <materialDesign:DrawerHost.RightDrawerContent>
-                    <Frame x:Name="helperFrame" Width="600" Height="600"/>
+                    <Frame x:Name="helperFrame" Source="help\view\system\Welcome.xaml" Width="600" Height="600"/>
                 </materialDesign:DrawerHost.RightDrawerContent>
                 <materialDesign:DrawerHost.BottomDrawerContent>
                     <Frame x:Name="aboutFrame" Height="400"/>

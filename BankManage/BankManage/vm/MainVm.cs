@@ -8,19 +8,35 @@ using BankManage.utils;
 using BankManage.view.loginForm;
 using MaterialDesignThemes.Wpf;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media.Imaging;
+using BankManage.dao;
+using BankManage.dao.impl;
+using BankManage.vm.loginForm;
+using System.Linq;
 
 namespace BankManage.vm {
     internal class MainVm : NotifyProperty {
         private Window _curWindow;
+        private EmpMapper _empMapper = new EmpMapperImpl();
 
         private MainModel _main = new MainModel();
 
         public MainModel main {
             get => _main;
             set {
-                if (value == _main)
+                if (value == _main) {
                     return;
+                }
+
                 _main = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public BitmapImage image {
+            get => FileUtils.ByteToImage(main.imgPhoto);
+            set {
+                main.imgPhoto = FileUtils.ImageToByte(value);
                 OnPropertyChanged();
             }
         }
@@ -90,6 +106,7 @@ namespace BankManage.vm {
         }
 
 
+
         public MainVm(Window curWindow) {
             LogHelper.Loginfo.Info("主窗体程序启动");
             _curWindow = curWindow;
@@ -110,6 +127,8 @@ namespace BankManage.vm {
             //启动登陆窗体
             LoginForm login = new LoginForm();
             login.ShowDialog();
+            image = FileUtils.ByteToImage(_empMapper.GetEmp(LoginFormVm.Id).First().photo);
+            main.employeeName = _empMapper.GetEmp(LoginFormVm.Id).First().EmployeeName;
         }
     }
 }

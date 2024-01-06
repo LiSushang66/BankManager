@@ -3,6 +3,7 @@ using BankManage.dao.impl;
 using BankManage.model.passChange;
 using BankManage.utils;
 using BankManage.view.loginForm;
+using BankManage.vm.loginForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace BankManage.vm.passChange {
             if (query.Count() > 0) {
                 var q = query.First();
                 if (_accMapper.UpdateAcc(q.accountNo, newPass)) {
+                    LogHelper.Loginfo.Info("账号" + q.accountNo + "的密码被" + LoginFormVm.UserName + "修改为" + newPass);
                     MessageBox.Show("更改密码成功！");
                 } else {
                     MessageBox.Show("更改密码失败！");

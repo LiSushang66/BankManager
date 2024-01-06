@@ -4,24 +4,34 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500">
+           d:DesignHeight="300" d:DesignWidth="300"
+	Title="Deposit">
     <Grid>
-        <ScrollViewer >
-            <StackPanel>
-                <StackPanel Height="203" VerticalAlignment="Top">
-
-                </StackPanel>
-                <StackPanel Margin="20">
-                    <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">存款查询服务帮助</Label>
-                    <TextBlock FontSize="18"  xml:space="preserve" TextWrapping="Wrap">       欢迎使用狗熊岭银行管理系统，您可以随时点击左上角的选单打开帮助。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，可通过身份证号码、账户或姓名，单击“查询”，查询匹配的存款余额。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果找不到您的问题或答案，请向我们反馈。</TextBlock>
-                    <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap" HorizontalAlignment="Right">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <ScrollViewer >
+                <StackPanel>
+                    <StackPanel Margin="20">
+                        <Label HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">存款服务帮助</Label>
+                        <TextBlock FontSize="18"  xml:space="preserve" TextWrapping="Wrap">       欢迎使用狗熊岭银行管理系统，您可以随时点击左上角的选单打开帮助。</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       在本页面内，你可以查看今天的交易记录。</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       点击分页栏可以对内容进行分页</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap">       如果找不到您的问题或答案，请向我们反馈。</TextBlock>
+                        <TextBlock FontSize="18" xml:space="preserve"  TextWrapping="Wrap" HorizontalAlignment="Right">
                         狗熊岭银行管理系统开发团队</TextBlock>
+                        <Label HorizontalAlignment="Right" FontSize="24" >如有问题请咨询本服务热心负责员工:</Label>
+                        <Image Height="350" Width="220" HorizontalAlignment="Right" Source="..\..\..\static\images\public\EmployeeBear2.jpeg"></Image>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
 
-        </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

@@ -8,8 +8,46 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Welcome">
 
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="416" Margin="246,24,0,0" VerticalAlignment="Top" Width="317" Source="..\..\static\images\public\theme.jpg"/>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <FontFamily  x:Key="font_AQS">
+                        ..\..\static\font\AaQiShu-2.ttf
+                    </FontFamily>
 
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Image Grid.Row="0" Source="..\..\static\images\public\themeBar.png"/>
+        <Grid Background="White" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Height="800" Width="250" VerticalAlignment="Center" HorizontalAlignment="Right" Source="..\..\static\images\public\EmployeeBear2.jpeg"/>
+            <Image Grid.Column="1" Height="800" Width="575" VerticalAlignment="Center" Source="..\..\static\images\public\theme.jpg"/>
+            <Image Grid.Column="2" Height="800" Width="250" VerticalAlignment="Center" HorizontalAlignment="Left" Source="..\..\static\images\public\BusinessBear1.jpg"/>
+        </Grid>
+        <TextBlock  Grid.Row="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17" FontStyle="Italic"  Text="万水千山总是情，存一点钱行不行" FontFamily="{StaticResource font_AQS}">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.0" Color="#FFFDD835" />
+                        <GradientStop Offset="1.0" Color="#FFAA00FF" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
     </Grid>
 </Page>

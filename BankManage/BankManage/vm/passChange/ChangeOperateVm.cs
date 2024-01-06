@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Linq.Expressions;
+using BankManage.vm.loginForm;
 
 namespace BankManage.vm.passChange {
     internal class ChangeOperateVm : NotifyProperty {
@@ -46,6 +47,7 @@ namespace BankManage.vm.passChange {
             if (query.Count() > 0) {
                 var q = query.First();
                 if (_empMapper.UpdateEmp(q.EmployeeNo, newPass)) {
+                    LogHelper.Loginfo.Info("操作员" + q.EmployeeNo + "的密码被" + LoginFormVm.UserName + "修改为" + newPass);
                     MessageBox.Show("更改密码成功！");
                 } else {
                     MessageBox.Show("更改密码失败！");
