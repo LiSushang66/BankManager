@@ -9,7 +9,7 @@
         xmlns:cntl="clr-namespace:BankManage.component.password"
         xmlns:vm="clr-namespace:BankManage.vm.loginForm"
         d:DataContext="{d:DesignInstance vm:LoginFormVm}"
-        Title="用户登录" Height="350" Width="400">
+       Title="用户登录" Height="550" Width="600">
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
             <b:InvokeCommandAction Command="{Binding Window_Loaded}" />
@@ -18,61 +18,178 @@
             <b:InvokeCommandAction Command="{Binding Window_Closing}"/>
         </b:EventTrigger>
     </b:Interaction.Triggers>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-            <ColumnDefinition Width="*" ></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFF9FBFA" Offset="0"/>
-                <GradientStop Color="#FFB5DEAC" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBlock Grid.Row="0"  TextAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="用户登录" VerticalAlignment="Top" Height="35" Width="372" FontSize="20" FontWeight="Bold" Margin="10,15,10,0" Grid.ColumnSpan="2">
-            <TextBlock.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF2F5F0" Offset="0"/>
-                    <GradientStop Color="#FFE85502" Offset="0.474"/>
-                </LinearGradientBrush>
-            </TextBlock.Foreground>
-            <TextBlock.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FFCF3333" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBlock.OpacityMask>
-        </TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right"  TextWrapping="Wrap" Text="账号"  Height="23" Margin="-10,17,10,0"/>
-        <ComboBox 
-            materialDesign:HintAssist.Hint="用户名"
-            materialDesign:HintAssist.HintOpacity=".26"
-            IsEditable="True"
-            ItemsSource="{Binding loginForm.txtComboxItem}" Text="{Binding loginForm.txtCombox}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,10"  Width="190" />
-        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" TextWrapping="Wrap" Text="密码"  Height="23" Width="36" Margin="0,7,0,10"/>
-        <PasswordBox cntl:PasswordBoxHelper.Password="{Binding loginForm.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     x:Name="pass" HorizontalAlignment="Left"  Width="190" Height="23" Grid.Column="1" Grid.Row="2" Margin="20,10,0,7">
-            <b:Interaction.Behaviors>
-                <cntl:PasswordBoxBehavior/>
-            </b:Interaction.Behaviors>
-        </PasswordBox>
-        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" TextWrapping="Wrap" Text="验证码"  Height="23" Width="36" Margin="0,7,0,10"/>
-        <TextBox Text="{Binding loginForm.veriCode}" HorizontalAlignment="Left"  Width="190" Height="23" Grid.Column="1" Grid.Row="3" Margin="20,10,0,7"/>
-        <Image Grid.Column="1" Source="{Binding loginForm.captcha}" HorizontalAlignment="Left" Height="41" Margin="72,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="109"/>
-        <Button Command="{Binding RefreshCaptcha}" Content ="刷新" HorizontalAlignment="Left" Margin="20,23,0,0" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" />
+    <Window.Resources>
+        <SolidColorBrush x:Key="InputBoxHintAssistForegorundBrush" Color="Purple">
 
-        <Button  Grid.Row="5" Content="登录" Margin="12,18,218,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="62"
-                 Command="{Binding LogIn}" CommandParameter="{Binding ElementName=pass, Path=.}" Grid.Column="1"/>
-        <Button Grid.Row="5"  Content="取消" Margin="118,18,110,0" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="64" 
-                Command="{Binding Exit}" Grid.Column="1"/>
+        </SolidColorBrush>
+
+        <Style x:Key="InputIcon" TargetType="materialDesign:PackIcon">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <LinearGradientBrush x:Key="SkyBrush" StartPoint="0 0" EndPoint="1 0">
+            <GradientStop Color="#FF84FFFF" Offset="0"/>
+            <GradientStop Color="#FF84FFFF" Offset="5."/>
+            <GradientStop Color="#FF8C9EFF" Offset="6."/>
+            <GradientStop Color="#FF8C9EFF" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="GroundBrush" StartPoint="0 0" EndPoint="1 0">
+            <GradientStop Color="#FF84FFFF" Offset="0"/>
+            <GradientStop Color="#FF82B1FF" Offset="5."/>
+            <GradientStop Color="#FF8C9EFF" Offset="1"/>
+        </LinearGradientBrush>
+
+
+    </Window.Resources>
+
+
+    <Grid Background="{StaticResource SkyBrush}">
+        <Grid Height="500" Background="{StaticResource GroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Grid.Row="0" Grid.RowSpan="2" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                 Width="360"
+                                 Height="360"
+                                Padding="10"  >
+
+                <StackPanel Margin="0 30 0 0">
+
+                    <Grid Margin="0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Grid.Column="1"  Kind="UserBox" Style="{StaticResource InputIcon}"/>
+                        <ComboBox Grid.Column="2" Padding="10 0"
+                              materialDesign:HintAssist.Hint="用户"
+                              materialDesign:HintAssist.Foreground="{StaticResource InputBoxHintAssistForegorundBrush}"
+                              materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource InputBoxHintAssistForegorundBrush}"
+                              materialDesign:HintAssist.FloatingScale="0.6"
+                              ItemsSource="{Binding loginForm.txtComboxItem}"
+                              IsEditable="True"
+                              Text="{Binding loginForm.txtCombox}"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              FontSize="14" />
+                    </Grid>
+
+                    <Grid Margin="0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="30"/>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Grid.Column="1" Kind="ShieldKey" Style="{StaticResource InputIcon}"/>
+
+                        <PasswordBox cntl:PasswordBoxHelper.Password="{Binding loginForm.password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Grid.Column="2" Padding="10 0"
+                                  x:Name="pass"
+                                  MaxLength="11"
+                                  materialDesign:HintAssist.Hint="密码"
+                                  materialDesign:HintAssist.Foreground="{StaticResource InputBoxHintAssistForegorundBrush}"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource InputBoxHintAssistForegorundBrush}"
+                                  materialDesign:HintAssist.FloatingScale="0.6"
+                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                                  FontSize="14">
+                            <b:Interaction.Behaviors>
+                                <cntl:PasswordBoxBehavior/>
+                            </b:Interaction.Behaviors>
+                        </PasswordBox>
+                    </Grid>
+
+                    <Grid Margin="0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Grid.Column="1" Kind="CodeGreaterThanOrEqual" Style="{StaticResource InputIcon}"/>
+
+                        <TextBox Grid.Column="2" Padding="10 0"
+                                  x:Name="Captcha" Width="120" HorizontalAlignment="Left"
+                                  MaxLength="11"
+                                  Text="{Binding loginForm.veriCode}"
+                                  materialDesign:HintAssist.Hint="验证码"
+                                  materialDesign:HintAssist.Foreground="{StaticResource InputBoxHintAssistForegorundBrush}"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource InputBoxHintAssistForegorundBrush}"
+                                  materialDesign:HintAssist.FloatingScale="0.6"
+                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                  FontSize="14" Margin="0,0,0,-0.333" />
+                        <Button Command="{Binding RefreshCaptcha}"
+                                Grid.Column="3"
+                                IsDefault="True"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Height="30"
+                                Width="30"
+                                Padding="0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Grid.ColumnSpan="2">
+                            <Button.Content>
+                                <materialDesign:PackIcon Foreground="Blue" Kind="BackupRestore" Style="{StaticResource InputIcon}" Height="30" Width="30"/>
+                            </Button.Content>
+                        </Button>
+                        <Image Height="40" Width="90" Source="{Binding loginForm.captcha}" VerticalAlignment="Bottom" Grid.Column="4"/>
+                    </Grid>
+
+                    <WrapPanel HorizontalAlignment="Right" Margin="0 10 30 30">
+                        <CheckBox Content="记住密码"
+                                  Margin="16 4 16 0"
+                                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}">
+                        </CheckBox>
+                        <CheckBox Content="自动登录"
+                                  Margin="16 4 0 0"
+                                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}">
+                        </CheckBox>
+
+                    </WrapPanel>
+
+                </StackPanel>
+            </materialDesign:Card>
+
+
+            <Grid Grid.Row="1" Height="50" VerticalAlignment="Center" Width="360" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button IsDefault="True" Grid.Column="0" HorizontalAlignment="Center"
+                    FontSize="20"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="50"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    Command="{Binding LogIn}" CommandParameter="{Binding ElementName=pass, Path=.}">
+                    <TextBlock
+                        Text="登录" />
+                </Button>
+                <Button IsDefault="True" Grid.Column="1" HorizontalAlignment="Center"
+                    FontSize="20"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Height="50"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    Command="{Binding Exit}">
+                    <TextBlock
+                        Text="取消" />
+                </Button>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Window>

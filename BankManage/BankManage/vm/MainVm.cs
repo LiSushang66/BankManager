@@ -108,8 +108,8 @@ namespace BankManage.vm {
             //默认显示当前页面
             main.uri = new Uri("view/system/Welcome.xaml", UriKind.Relative);
             //启动登陆窗体
-            //LoginForm login = new LoginForm();
-            //login.ShowDialog();
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
         }
     }
 }
