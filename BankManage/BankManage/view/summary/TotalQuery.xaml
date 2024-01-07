@@ -88,7 +88,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="账号" Binding="{Binding accountNo}"/>
                     <DataGridTemplateColumn Header="处理时间"
-                        SortMemberPath="BirthDate"
+                        SortMemberPath="dealDate"
                         CellTemplate="{StaticResource DealDateTemplate}" />
                     <DataGridTextColumn Header="处理类型" Binding="{Binding dealType}"/>
                     <DataGridTextColumn Header="处理金额" Binding="{Binding dealMoney}"/>
