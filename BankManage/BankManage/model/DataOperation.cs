@@ -197,7 +197,8 @@ namespace BankManage.model
                             where t.accountNo == accountNumber && t.dealType == "存款"
                             orderby t.dealDate descending
                             select t;
-                if (query.Count() > 0) {
+                if (query.Count() > 0)
+                {
                     var q = query.First();
                     deal = CreateDealRecord();
                     deal.accountNo = accountNumber;
@@ -205,6 +206,11 @@ namespace BankManage.model
                     deal.dealDate = q.dealDate;
                     deal.dealMoney = q.dealMoney;
                     deal.dealType = q.dealType;
+                }
+                else 
+                {
+                    deal = CreateDealRecord();
+                    deal.dealType = "没有存款记录";
                 }
             } catch {
                 return null;

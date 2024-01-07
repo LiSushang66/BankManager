@@ -60,7 +60,11 @@ namespace BankManage.domain {
                 MessageBox.Show("请整取" + ((int)AccountBalance).ToString() + "元");
                 return;
             }
-
+            if (DataOperation.GetRecentDeposit(AccountInfo.accountNo).dealType == "没有存款记录")
+            {
+                TimeSpan OpenAccTime = new TimeSpan(DateTime.Now.Ticks - DataOperation.GetOpenAccount(AccountInfo.accountNo).dealDate.Ticks);
+                Settlement(OpenAccTime);
+            }
             TimeSpan Over = new TimeSpan(DateTime.Now.Ticks - DataOperation.GetRecentDeposit(AccountInfo.accountNo).dealDate.Ticks);
             MoneyInfo Open = DataOperation.GetOpenAccount(AccountInfo.accountNo);
             MoneyInfo recWithDraw = DataOperation.GetRecentWithDraw(AccountInfo.accountNo);

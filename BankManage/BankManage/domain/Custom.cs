@@ -58,7 +58,8 @@ namespace BankManage.domain {
         public virtual void Diposit(string genType, double money) {
             if (genType == "结息") {
                 if (money < 0) {
-                    throw new Exception("结息金额错误为负值");
+                    MessageBox.Show("结息金额错误为负值, 可能是存款金额为负值");
+                    return;
                 } else {
                     //修改余额
                     string dotFloatThreeBit = money.ToString("f3");
@@ -70,7 +71,8 @@ namespace BankManage.domain {
 
             } else if (genType == "存款") {
                 if (money <= 0) {
-                    throw new Exception("存款金额不能为零或负值");
+                    MessageBox.Show("存款金额不能为零或负值");
+                    return;
                 } else {
                     //修改余额
                     AccountBalance += money;
