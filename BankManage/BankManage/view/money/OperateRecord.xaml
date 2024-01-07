@@ -30,7 +30,7 @@
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="处理时间" Width="250"
-                        SortMemberPath="BirthDate"
+                        SortMemberPath="dealDate"
                         CellTemplate="{StaticResource DealDateTemplate}" >
                 </DataGridTemplateColumn>
 
