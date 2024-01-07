@@ -61,7 +61,7 @@ namespace BankManage.vm.loginForm {
         public ICommand Window_Closing { get; set; }
         private void ExecuteWindow_Closing(object sender) {
             if (string.IsNullOrEmpty(UserName) == true) {
-                LogHelper.Loginfo.Info("程序关闭");
+                //LogHelper.Loginfo.Info("程序关闭");
                 Application.Current.Shutdown();
             }
         }

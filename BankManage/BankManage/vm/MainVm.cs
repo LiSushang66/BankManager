@@ -127,8 +127,10 @@ namespace BankManage.vm {
             //启动登陆窗体
             LoginForm login = new LoginForm();
             login.ShowDialog();
-            image = FileUtils.ByteToImage(_empMapper.GetEmp(LoginFormVm.Id).First().photo);
-            main.employeeName = _empMapper.GetEmp(LoginFormVm.Id).First().EmployeeName;
+            if (!String.IsNullOrEmpty(LoginFormVm.Id)) {
+                image = FileUtils.ByteToImage(_empMapper.GetEmp(LoginFormVm.Id).First().photo);
+                main.employeeName = _empMapper.GetEmp(LoginFormVm.Id).First().EmployeeName;
+            }
         }
     }
 }

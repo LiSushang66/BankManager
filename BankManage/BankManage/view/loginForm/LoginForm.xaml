@@ -43,6 +43,9 @@
             <GradientStop Color="#FF8C9EFF" Offset="1"/>
         </LinearGradientBrush>
 
+        <FontFamily  x:Key="font_AQS">
+            ..\..\static\font\AaQiShu-2.ttf
+        </FontFamily>
 
     </Window.Resources>
 
@@ -61,7 +64,25 @@
                                  Height="360"
                                 Padding="10"  >
 
-                <StackPanel Margin="0 30 0 0">
+                <StackPanel Margin="0 0 0 0">
+                    
+                    <Grid Margin="0 10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="..\..\static\images\public\logo.png" Height="50" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17" FontStyle="Italic"  Text="狗熊岭银行" FontFamily="{StaticResource font_AQS}">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStop Offset="0.0" Color="#FF82B1FF" />
+                                        <GradientStop Offset="1.0" Color="#FFAA00FF" />
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </Grid>
 
                     <Grid Margin="0 10">
                         <Grid.ColumnDefinitions>
