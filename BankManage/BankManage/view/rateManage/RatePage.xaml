@@ -20,8 +20,7 @@
                   HeadersVisibility="All"
                   Background="WhiteSmoke"  
                   CanUserAddRows="False" 
-                  CanUserDeleteRows="False"
-                  IsReadOnly="True">
+                  CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="存款类型" Binding="{Binding rationType}" Width="150" >
                         <DataGridTextColumn.ElementStyle>
