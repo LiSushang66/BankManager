@@ -31,6 +31,9 @@ namespace BankManage.domain {
         /// </summary>
         /// <param name="money">取款金额</param>
         public override void Withdraw(double money) {
+            //取款验证
+            if (!ValidBeforeWithdraw(money)) return;
+
             TimeSpan Cur = new TimeSpan(DateTime.Now.Ticks - DataOperation.GetRecentDeal(AccountInfo.accountNo).dealDate.Ticks);
             //添加利息
             base.Diposit("结息", DataOperation.GetRate(RateType.活期) * money * (Cur.TotalDays / 365));
